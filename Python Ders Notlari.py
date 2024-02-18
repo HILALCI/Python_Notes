@@ -1,5 +1,4 @@
-"""
-
+""
                                                                         PYTHON DERS NOTLARI      
 
 
@@ -41,6 +40,12 @@ sudo apt install python3 python3-pip build-essential python3-dev #Pythonla alakl
 python -V #Hangi versiyonun kurulu oldugunu gormek icin
 python --version #Bu komut ile yine versioynunu gorebilirsiniz.
 python3 -V yada python3 --version #Eger v2 varsa v3 sorgusu icin python3 olarak yazmamaiz gerekir.
+python3 -m pip install --upgrade pip #pip version update icin.
+pip install --upgrade pip
+pip install -r requirements.txt --upgrade
+pip list --outdated #Guncel olmayan paketleri gormek icin.
+pip install --upgrade paket_name #Guncel olmayan paketleri tek tek guncelleyebilirsin.Problem yaratan paketleri bulmak icin kullanilabilir.
+#Hata veren paketler requirements.txt cikartilarak otomatik guncellemenin devam etmesi saglanabilir.
 sudo apt install idle #Teminalde calistirdigimizda Linux sistemlerede  idle kurmak icin (Best IDE ever)
 idle #IDLE calistirmak icin
 idle x.py #Direkt olarak dosya ile acmak icin
@@ -50,6 +55,8 @@ exit() #Python Shell cikmak icin kullanilir.
 python calistir.py #Tek bir surum varsa v3 de olsa calistirinca hata veriyor bu sekilde calistiriniz.
 python3 calistir.py #Console ile calistrimak icin python yazarsak python v2 calistiriliyor. v3 icin python3 kullaniyoruz.
 pip install modul_adi #Modul adi yerine kurmak istediginiz paketlerin isimini yaziyoruz.
+pip3 uninstall modul_adi #Kaldirma islemi icin.
+pip install --user modul_adi #Dizin olarak farkli kurulum yapildiysa kaldiriken kullanilabilir.
 pip3 list #Kurulu olan paketleri listeler
 pip install -r req.txt #Kendi olusturmus oldugumuz txt dosyasindaki modullerin tamamini tek satirda indirmek icin.
 #txt dosyasinda sadece modul isimlerinin olmasi yetiyor.
@@ -73,7 +80,6 @@ s**(1/3) #Kupkok icin parantezli 1/3 yapilir
 x % y  #Kalan Bulmak icin % kullanilir.Mod operatorudur.Matematikteki gosterimi x mod y dir.
 a // s  #Kalnsiz degerli tam bolme islemi icin // kullanilir.Virgulden sonrasini gostermez.Katsayıyı bulur.
 21//5 #Bu islemi yaptigimizda sonucu ekrana yazdigimizda 4 yazar.Yani 21 bolunen , 5 bolen ,4 bolum , 1 kalan  yani bu islemle bolumu buluruz.
-
 
 
 #Variable
@@ -118,9 +124,10 @@ a = True #Boolean deger buyuk harfle ilk basliyor.C de kucuk harfle true yanlis 
 x = str(5.4)
 print(int(float(x))) #Direkt int cevrildiginde hata aliyoruz.Once float sonra int cevrilmeli.
 
-if "var" in globals()
-if "var" in locals() 
-#Degisken isminin global veya local tanimli olup olmadigini kontrol  edebilirsin.
+#mypy
+pip install mypy
+mypy dosya.py #Bu sekilde dosya calistirilir eger degisken tipleri ile ilili hata var veya yok ise bunu belirtir.
+
 
 liste= ["Merhaba",3.14,...] #listeleme stringlerden farki degistirilebilmesi 
 liste=list() #Bos bir liste olusturur.
@@ -181,8 +188,9 @@ del demet #Demet tamamen silmek icin
 
 kume={1,2,3,4,5} #Bu gösterim kümeler yani set olarak adlandiriliyor.
 kume={1,1,1,2,2,3,4,5} #Boyle yazilmis olsa bile yukaridaki gibi ayni elemandan bir tane olacak sekilde sirasi onemsiz olarak gosterir printle.
+kumet = set() #V=Bos bir kume olusturmak icin.
 kume= set(liste) # set ile listeyi,tuple,stringleride kumeye cevirebiliriz.
-kume.add(x) #Kumeye eleman ekliyoruz.
+kume.add(x) #Kumeye eleman ekliyoruz.Eger eleman kumede var ise eklemez.Bu duplicate olmamasini saglamak icin kullanilabilir.
 kume.discard(x) #Kumeden elemani siler.
 kume.update("8") #Uzerinde gezinebilecegi formatlarda guncelleme yapabiliyor.
 kume.update([6,7]) #Bu sekilde diger tiplerde eklemeler yapilabilir.
@@ -232,6 +240,7 @@ sozluk.pop("iki") #Yine elemani silmek icin key degerini giriyoruz.
 sozluk.popitem() #Arguman vermeden cagiriyoruz. popitem() methodu ile son ekelen key ve value degerini siler.
 sozluk.clear() #Tum key ve value degerlerini silebiliriz.
 del sozluk #Sozlugu tamamen silmek icin
+#Not : Sozluklerde bos birakirken "" yerine None ekliyebilirsin.Bu baska bir gozun hatali girilmedigi bos oldugunu anlamasini kolaylastirir.
 
 for k, v in sozluk.items(): #Anahtar ve degeri yazdirmak icin 
     print(k,v)
@@ -330,6 +339,9 @@ print(int(False)) #0 sonucu cikar.
 print(9+True) # 10 sonucu yazar.
 print(9 * False) # 0 sonucu yazar.
 bool("") #False doner bos degilse  True doner.bool(" ") bosluk karakteri de olsa bir karakterdir bu yuzden True doner.
+15 * True #Cikti 15. True == 1 oldugundan ayni kalir.
+15 * False #Cikti 0. False == 0 oldugundan sifirlanir.String icin de bu islemler gecerlidir.
+print(False + True + True) #Matematiksel islemler de yapilabilir.Cikti 2 olacaktir. 0 + 1 + 1 = 2
 l1=[1,2,3,4,5] 
 l2=[1,2,3,4,5]
 print(id(l1)) #Cikti 1780674395840 .Bu, bellekteki nesnenin adresidir. !!!( Pointer yani daha ayrinti icin CPython bakacagım. )!!!
@@ -343,6 +355,18 @@ a= "a" * 2
 "aa" is a  #True deger doner.
 a = "a"
 "aa" is a * 2 #False deger doner.
+
+#Walrus Operatoru
+x = "Iceriyor mu?"
+y = "?"
+#Walrus operatoru ile atama islemini ayri satirda yapmak yerine daha az satir ile kontrolude birlikte yapilmasini saglar.
+if kontrol := y in x: #Bu yeni operator := atama islemi yaparken boolean kontrolun yapilmasini sagliyor.
+    print("Iceriyor")
+else:
+    print("Icermiyor")
+
+print(f"Kontrol = {kontrol}")
+
 
 #if-elif-else Kontrol yapilari bunlar belirli bir kosul altinda kod blogunun calismasini saglarlar.Yapisal programlamanin bir ozelligidir.
 
@@ -380,9 +404,22 @@ match status:
         print("IDK")
     case ( x, y) if x > y: #Case de kosul kontrolleri yine yapabilirsin.
         print("IDK")
+    case B | B1:  #C dilinde old. gibi nreak vermeden yaptigimiz birlesik islemleri pythonda | ile yapabiliriz.
+    	print("Araba surebilir.")
 
 #Switch-Case yapisindan farkli olarak break eklenilmesine gerek duyulmamasidir.Sadece bir tane case calisir.
 #Ayrica enum ve classlarla birliktede kullanilan ornekleri vardir.
+
+def esit(x,y):
+    return True if x == y else False  #Tek satirda return degerli fonksiyonlar yazilabilir.
+print(esit(10,11))
+
+def esit(x,y):
+    return (x == y) #Yukaridaki fonksiyonun daha da basitlestirilmis hali yazilabilir.
+print(esit(10,12))
+
+#Pythonic Expressions  olarak adlandirilan pythona ozgu yazim sekilleri ile hada az satir ile yazmak mumkundur.
+	
 
 
 #Loop : Donguler yine belirli bir kosul dahilinde kodlarin tekrar etmesini sağlar.Yine yapisal programlamanin bir ozelligidir.
@@ -401,12 +438,51 @@ continue #Donguyu devam ettirir.
 break  #Donguyu sonlandirir.
 pass #Bu komut gec komutu.
 
+liste = [5,7,3,4,8]
+for i in sorted(liste): #Listeyi sirali olarak elemanlarini almak icin sorted kullanilabilir.
+    print(i)
+    
+sozluk = [
+			{"name":"Ahmet", "yil"=5},
+			{"name":"Ayse", "yil"=3}
+			{"name":"Mustafa", "yil"=8}
+		 ]
+for musteri in sorted(sozluk, key="yil", reverse=True): #Listeyi sirali olarak elemanlarini almak icin sorted kullanilabilir.
+    print(musteri["name"])
+    
+for _ in range(5): #Degiskeni kullanmadigimizda orenkte i yerine _ kullanabiliriz.
+    print("wow")
+    
+#Baska bir gozun degiskeni  kullanmadigimizi anlmasina yardimci olur.Sadece dongulerde degil diger degiskenler icin de kullanibilir.
+    
+for _ in range(5):
+    print(_) #Bu sekilde kullanildiginda sayilari yine ekrana yazdirir.
+#Fakat yukaridaki kullanim onerilmez cunku baska bir goz baktiginda degisken kullanildigi halde ne icin kullanildigini veya bu islemi neden boyle yaptiginin bilinmediginden anlasilmasini zorlastirir.
+
+
+YAZ = 5 #Constants buyuk harfle tanimlanmalidir.Bu yapi bize kolayklik saglar. 
+#Sadece tanimlandigi alanda degisiklik yapilarak tum alanlardaki degisleri tek seferde yapilmasina olanak tanirlar.
+for _ in range(YAZ):
+	print("Birsey")
+
 ciftList = [eleman for eleman in range(11) if eleman %2 == 0] #Bu sekilde tek satirda islem yapabilirsin.
 #if mantiksal operatorler ile kosullar ekleyebilirsin.Fakat else veya elif ekleme
 print(ciftList)
 kareList = [eleman**2 for eleman in range(11)] #Eklenecek elemana yine islemler uygulabilirsin
 print(kareList)
 
+
+sozluk = [
+    {"name": "Ahmet", "age":40},
+    {"name": "Ali", "age":20},
+    {"name": "Arda", "age":10},
+]
+
+def get_age(sozluk):
+    return sozluk["age"]
+
+for musteri in sorted(sozluk, key=get_age):
+    print(musteri["name"])
 
 import math # Kutuphane veya fonksiyon cagirmak icin.
 dir(math)  # Ne calisabilir yazdirmak icin.
@@ -460,6 +536,12 @@ print(s)
 print(s.capitalize()) #Yalnizca ilk harfi buyultur diger harfler kucuk kalir ve eger onunde sayi varsa yine buyultmez.
 print(s.title()) #Bu method kelimelerin ilk harflerini buyuk yazar.
 print(s.center(x)) #Center tam olarak bazi degerlerde ortalamasada yazinin sagindan ve solundan bosluk birakarak ortamaya calisiyor.
+
+x = 150000000
+print(f"{x:,}") #Parasal gosterim icin kullanilabilir. Basamaklari virgulle ayirarak gosterir.
+x = 15 / 7
+print(f"{x:.3f}") #Yuvarlama yaparak istenilen hane sayisi kadar gosterir.Bu ornekte virgulden sonra 3 basamak olacak.
+
 s = "155005224789"
 print(s.center(len(s) + 2 ,"#")) #Bu sekilde cek gibi meblanin basinda sonunda "#" ekliyor.
 #center() str uzunlugundan az ise birsey yazmiyor str boyutunu gectikten sonra soldan baslayarak eklemeler yapip ortalamaya calisiyor.
@@ -508,10 +590,8 @@ def top(a,b,c):    #Kac parametreyse o kader girdi girilmeli.
 def isim(ad="Salih"): #isim() deger girmeden yazarsak Salih olarak cıkacak.Eger deger verirsek o yazilcak.
 isim(ad="Salih") #Fonksiyonda soyad old varsayarsak sadece ad degistirecek sirali girildigi icin bu islem ise yarayabilir.
 #Default deger ile hatalarin onune gecebilirsin.
-def top(*a):  #İstedigimiz kadar degisken atayabiliyor.Fakat bunu liste olarak tutuyor dikkat.for ili kullunirkan a yani degiskeni al.
-def fon(*args) #Yukaridaki ayni islem yapiyor.
-def fon(**kwargs) # *args demet olarak **kwargs sozluk olarak arguman aliyor.
-ef top():
+
+def top():
     global a  #Onceden tanimli degisekni degisterdimizde her yerde degisecek cunku global dedik.Nomalde fonksiyonlar local kayitli ve sadece fonksiyon calisinci degisiyor sonrasindi oncedeh tanimli ne isi o kaliyor.
 liste2=[x*2 for x in liste1] #Tek satirda listedeki her elemani 2 carpabilirirz.
    
@@ -564,6 +644,17 @@ def goster(name, capWord = False):
 
 print(goster("AHMET")) #ahmet olarak ekrana yazak cunku True parametresi eklenmemis.
 
+def ret():
+	#x ve y tanimli degiskenler olugunu varsayilarak asagidaki return yapilari ile fonksiyon tanimlamak mumkundur.
+	return x,y # x,y = ret() seklinde kullanilir.Iki ayri deger olarak doner.
+	return (x,y) # donen = ret() seklinde kullanilir.Tuple olarak doner.
+	return [x,y] # donen = ret() seklinde kullanilir.Liste olarak doner.
+	return {"x":x, "y":y} #donen = ret() seklinde kullanilir.Sozluk olarak doner.
+
+def top(*a):  #İstedigimiz kadar degisken atayabiliyor.Fakat bunu liste olarak tutuyor dikkat.for ili kullunirkan a yani degiskeni al.
+def fon(*args) #Yukaridaki ayni islem yapiyor.
+def fon(**kwargs) # *args demet olarak **kwargs sozluk olarak arguman aliyor.
+
 def yapi(*args, **kwargs): #Tek * ile oldugunda tuple olarak tutuyor ve donderiyor. ** oldugunda key value tutabilecegi dic yapida tutuyor.
 #Yukaridaki yapida key ve value deger gorene kadar hepsini args atiyacak sonrasinda gelen dic elemanlari kwargs atiyacak.
 #Fakat sira ile girilecek kwarg yani dic elemanlar algilandiktan sonra key ve value deger isteyecektir args artik ekleyemez.
@@ -572,10 +663,83 @@ print(type(yapi(20))) #Tek veya cok girmemin bir farki yok *args tuple donderiyo
 print(yapi(20,50,30,56)) #Bu sayede tuple methodlarini kullanabilecek veya for ile eleman uzerinde gezinebilicegiz methodda
 print(type(yapi())) #**kwargs dict olarak dondu.
 #Bu args kwargs yerine baska isimlerde verebilirsin.
-print(yapi(name= "Ali",age = 20)) #**kwarg bu sekilde cagirabiliyoruz.Birden fazla olabildigi gibi tek bir tane key ve value girebiliriz.  
+print(yapi(name= "Ali",age = 20)) #**kwarg bu sekilde cagirabiliyoruz.Birden fazla olabildigi gibi tek bir tane key ve value girebiliriz.
+
+def tahmin(at1, at2, at3)
+cevaplar = [yes, no, no]
+cevaplar2 = {"at1":yes, "at2":no, "at3":no}
+tahmin(*cevaplar) #Fonksiyonlari cagirirkende Unpacking yapilabilir.
+tahmin(**cevaplar2)
+print(*cevaplar) #Bu sekilde listedeki [] parantezlerden kurtularak elemanlarin tamamini yazdirabilirisn.
+
+def topla(x: int, y: int) -> int: #int type casting yapmaz int oldugunu belirmek icin bir aciklama veya ipucu olmasi icin eklenmislerdir.
+#		argumanlarin         return int oldugu belirtilmistir.
+    """
+        Toplam islemi icin 2 tane int arguman alir.
+        Toplam degeri geri dondurulur.
+
+        Ornek:
+        >>> toplam = topla(2,4)
+    """
+
+    return x+y
+
+help(topla)  #help ile """""" icindeki yapiyi gormek mumkundur.Bu sekilde dokuman olusturabilirsin.
 
 
-#Global ve Local
+if len(sys.argv) == 2 :
+    if sys.argv[1] == "--help":
+        help(topla)
+        help(cikar)
+        
+#Yukaridaki satir --help parametresi girilmeden dokumanlarin gosterilmemesini saglar.
+python dosya.py --help #Bu komutla dosya calistirildiginda yine dokuman gozukecektir.Fakat kod icinde help yapilmis olmali.
+#Eger birden fazla help yazilmissa ise tek tek gosterir yine help() eklenmesi sarti ile.
+
+x: int = 10 #: islemi fonksiyon disindaki degiskenler de kullanilabilir.Fakat okuyan haricinde kullanici gormediginden kullanilmayabilir.
+
+def topla(x:int, y: int) -> None: #Geri deger dondurmedigini -> None ile gosterebiliriz.
+    """
+        Toplam islemi icin 2 tane int arguman alir.
+        Toplama islemini ekrana yazdirir deger dondurmez.
+
+        Ornek:
+        >>> topla(2,4)
+    """
+
+    print(x+y)
+
+help(topla)
+
+print(fonksiyon.__doc__) #Fonksiyon dokumanina farkli sekilde erismek icin.
+
+#Farkli bir Docstrings yapisi
+def topla(x:int, y: int) -> int:
+    """
+        Sum of x and y
+        
+        :params x: First literal, y: Second literal
+        :types x: int, y: int
+        :raise TypeError : if x and y not int
+        :return sum
+        :rtype : int
+
+        Example:
+        >>> toplam = topla(2,4)
+    """
+
+    return x+y
+
+help(topla)
+
+def cok(n):
+    yield "more" * n #return ile cok buyuk boyutlu islemler gerceklesmiyor.Bu yuzden yield kullanarak calisan ve verimli hale getirilebilir.
+
+#Global and Local Variable
+if "var" in globals()
+if "var" in locals() 
+#Degisken isminin global veya local tanimli olup olmadigini kontrol  edebilirsin.
+
 sayi = 5
 def guncelle():
     sayi = 10
@@ -586,9 +750,11 @@ print(sayi) #Ekrana 5 degeri basilacak nedeni foksiyonun icindeki local ve globa
 
 sayi = 5
 def guncelle():
-    global sayi #Bu degiskeni global yaptik
+    global sayi #Bu degiskeni global yaptik.
     sayi = 10
     return sayi
+
+#Eger global etiketi vermez isek hata verir.Global degiskeni degistirmek istedigimiz icin bu sekilde yapmaliyiz.    
 
 print(guncelle())
 print(sayi) #Iki ciktida ayni guncellenen deger ekrana yazildi.
@@ -596,6 +762,12 @@ print(sayi) #Iki ciktida ayni guncellenen deger ekrana yazildi.
 
 #OOP (Object-oriented programming) : Nesne Yonelimli Programlama 
 #Nesne yonelimli programlamada fonksiyon degil method olarak adlandirilirlar.
+#Siniflar main ve diger kodlardan once ilk kisimlarda bulunurlar.
+# ... kullnarak class bittigi belirtilebilir.pass yerinede kullanilabilir.
+class x():
+
+	....
+
 class Araba():
     mark="Volvo"
     model="S90"
@@ -631,12 +803,35 @@ class Driver(Araba):
 driver1=Driver("Volvo","S60","Black",1100,5)
 driver1.info()
 
+class Araba():
+    def __init__(self, fiyat): #self ilk başta yazılmak zorunda. mark="Volvo" tanimi onceden yapabilirsin. 2  "_" (alt cizgi) init 2  "_" (alt cizgi) olarak yapiyoruz.
+        self.fiyat = fiyat
+    
+    def __str__(self):
+        return f"Fiyat: {self.fiyat}"
+
+    #Operator Overloading
+    def __add__(self, other):
+        return Araba(self.fiyat + other.fiyat)
+    
+
+Araba1 = Araba(150000)
+Araba2 = Araba(200000)
+
+toplam = Araba1 + Araba2
+print(toplam)
+
 
 class Ogrenci():
     def __init__(self, no, ad, soyad):
         self.no = no
         self.ad = ad
         self.soyad = soyad
+    
+    #str print(ogrenci) yaptigimizda ekrana nasil cikti verilmesini istedigimizi olustrudugumuz yapidir.
+    #Not: ogrenci Ogrenci classindan uretilen nesnedir.
+    def __str__(self):
+		return f"{self.no} nolu {self.ad} {self.soyad} ogrencidir."
     
     #og1 yazdirdigimizda id yerine yazdirmak istedigimiz bir yapi icin repr kullaniyoruz.
     def __repr__(self):
@@ -645,10 +840,19 @@ class Ogrenci():
         Ogrenci Soyadi: {self.soyad}
         Ogrenci Numarasi: {self.no}
         """
+    #Getter
+    def no( self ):
+        return self._no
+
+    #Setter
+    def no(self, no):
+        self._no = no
 
 
-og1 = Ogrenci(1568, "Ali", "Yilmaz")
-print(og1)
+ogrenci = Ogrenci(154,"Ahmet", "Yilmaz")
+ogrenci.no = 11 #Public olan degeri degistir.
+ogrenci._no = 11 #Private olan degeri degistirir.Bu islem yapilan kontrollerin bypass edilmesi ile sonuclar dikkatli kullanilmalidir.
+print(ogrenci)
 
 def f5(x):
     return x+5
@@ -664,9 +868,6 @@ print(faz5)
 #Cesitli kutuphaneler ve modullerin bazilarini yine anlatmistik devam ediyoruz.
 from math import * #* tum methodlari eklemek icin kullanilir.Tek tek yazmak yerine * eklenir.
 
-#Terminalde calisma yapmak icin
-import sys 
-sys.argv[1] #komut satirindaki degeri string olarak aliyor. 0 index dosyanin ismi var o yuzden 1 aldik baska index alabiliriz.
 
 #Dosya islemleri 
 file = open('dosyaadi', 'w',encoding="utf-8") #Yazma islemi icin acmak istedigimizde dosyayi bu sekilde yapiyoruz. w da yaparken dikkat! ayni isimili dosya varsa o dosyayi siler tekrardan yazar.encoding eklemek zorunlu degil.
@@ -711,9 +912,17 @@ with open("dosya_adi.uzantisi") as dosya:
     icerik = dosya.read() #Bu sekilde yapilirsin.
 print(icerik)
 
+with open("file.txt", "r") as file:
+	for line in file:
+		print(line.rstrip()) #\n silmek icin rstrip kullandik.
+
+
+
 import csv
-reader = csv.reader(file)
+reader = csv.reader(file) 
+dicReader = csv.DictReader(file)
 writer = csv.writer(file)
+dicWriter = csv.DictWriter(file, fieldnames=["name","age"])
 
 def scope_test():
     def do_local(): 
@@ -814,7 +1023,7 @@ def main():
 def karesi(n):
     return n*2
 
-
+#Main bu sekilde yapildiginda baska bir dosyadan modul olarak alindiginda main kodlarini calistirmaz.Diger turlu tum kodlar calisir.
 if __name__ == "__main__":
     main()
 
@@ -936,7 +1145,7 @@ bin(x) # onluk tabandaki bir sayiyi ikilik (binary) tabanina ceviriyor.
 hex(x) # 16 lik taban cevirmek icin
 abs(x) # Mutlak deger alma islemi icin kullanabilirsin.
 round(x) #Yuvarlama islemi yapar.
-round(2.2226,3) # 2.223 cikar
+round(2.2226,3) # 2.223 cikar. Ikinci parametre kac haneye kadar yuvarlanacagini belirtmek icin.Bu ornekte 3 haneye indirgenmis.
 max(x,y,z, ... ) #En buyuk sayiyi buluyor.Listede veya demetlerde  de calisir.
 min(x,y,z, ... ) #En kucuk sayiyi buluyor.
 sum(liste) #Liste veya demeteki elemanlari toplar.
@@ -1022,6 +1231,7 @@ print(now.microsecond) # 378933
 moon_landing = "7/20/1969"
 moon_landing_datetime = datetime.datetime.strptime(moon_landing , "%m/%d/%Y" ) # string parse time  strptime() fakat "" icine yazdigin ayni olacak yoksa bosluklar hataya sebep veriyor.
 
+#OS
 import os  #os modulunu import etmek icin
 print(os.getcwd()) #os modulunu dosya konumunu ekrana yazdirir.
 os.chdir(".../dosya_konumu") #os modulunun dosya konumunu degistirir.
@@ -1033,6 +1243,86 @@ os.makedirs("dosya_adi/yeni_dosya") #os modulunun dosya konumuna iki tane dosya 
 os.rmdir("dosya_adi/yeni_dosya") #sadece yeni dosyayi yada tek olarak yazidigimiz bir dosyayi siler.
 os.removedirs("dosya_adi") #Tum dosyalari  alt dosyalari dahil siler.
 os.rename("dosya_adi","dosyanin_yeni_adi") # Dosyanin ismini degistirir adindanda anlasilacagi gibi
+os.name #The name of the operating system dependent module imported. The following names have currently been registered: 'posix', 'nt', 'java'.
+os.getcwd() #Kodun calistirildigi dizini gormek icin.
+os.chdir("Downloads") #Dizini degistirmek icin.Parametre olarak path veriyoruz.
+os.fchdir(fd) #Change to the directory of the given file descriptor.fd must be opened on a directory, not a file.Equivalent to os.chdir(fd).
+os.getgid() #Gercek calisan process group id gormek icin.
+os.geteuid() #Efektif kullanici id gormek icin.
+os.getegid() #Group id gormek icin.
+os.getgroups() #Group listesi gormek icin.
+os.getlogin() #Giris yapan kullanicin kim oldugunu gormek icin.
+os.getpgrp() #Gecerli process grubunun id gormek icin.
+os.getpid() #PID gormek icin.
+os.getppid() #Parent PID gormek icin.
+os.getresuid() #Demet olarak (ruid, euid, suid) degerlerini dondurur.
+os.getresgid()Demet olarak (rgid, egid, sgid) degerlerini dondurur.
+os.getuid() #Processin kullanici id gormek icin.
+os.uname() #OS ile ilgili bilgiler gosterir.
+"""
+Returns information identifying the current operating system. The return value is an object with five attributes:
+    sysname - operating system name
+    nodename - name of machine on network (implementation-defined)
+    release - operating system release
+    version - operating system version
+    machine - hardware identifier
+
+os.uname() gosterdigi bilgiler sirasiyla yukaridadir.
+"""
+os.listdir() ##ls komutu gibi girilen path degerindeki dosya ve dizinleri gosterir.Parametre girilmez ise bulundugu dizindekileri gosterir.
+os.listdir(path='.') #Path parametresine baska bir dosya yolu yazilabilir.Eger ornekteki gibi . olursa yine bulundugu dizindekileri gosterir.
+os.listdir(path='..') #.. ile bir ustteki dizindeki dosyalari gormek mumkun.path='../' yine ayni sekilde kullanilabilir.
+os.mkdir("test", mode=0o777) #Dosya isimi ve modunu vererek dosya olusturabilirsin.
+os.mkdir(path="./test", mode=0o777) #Dosya yoluda verilebilir.
+os.makedirs(name, mode=0o777, exist_ok=False) #Recursive directory creation function. Like mkdir(), but makes all intermediate-level directories needed to contain the leaf directory.
+os.remove("test.txt") #Dosya silmek icin.
+os.removedirs("dizin") #Dizin icerisi eger bos ise siler.Bos degilse hata veriyor silmiyor.
+os.rmdir(path) #Yukaridaki islem gibi bos olmadiginda yine silmiyor.
+
+import shutil #The shutil module offers a number of high-level operations on files and collections of files.
+shutil.rmtree('dizin')  #Dizini silmek icin fakat icinin bos olmasina bakmadan tamamen siler.
+
+os.rename("test", "test2") #Dosya veya dizinin ismini degistirmek icin.
+os.renames("test2.txt", "test.txt") #rename gibi fakat recursive olarak yapar.
+#is_dir(), is_file(), is_symlink() kontrolleri yapilabilir.
+os.stat('dizin') #Dizin durumunu gormek icin.
+os.chown(path, uid, gid) #Change the owner and group id of path to the numeric uid and gid.
+os.chmod(path, mode, *, dir_fd=None, follow_symlinks=True) #Change the mode of path to the numeric mode.
+os.pipe()
+os.pipe2(flags, /) #Bayrakları atomik olarak ayarlanmış bir kanal oluşturun.Sırasıyla okuma ve yazma için kullanılabilecek bir çift dosya tanımlayıcı döndürün.
+os.abort() #Generate a SIGABRT signal to the current process. 
+os._exit(n) #Exit the process with status n, without calling cleanup handlers, flushing stdio buffers, etc.
+os.fork() #Fork a child process.
+os.forkpty() #Fork a child process, using a new pseudo-terminal as the child’s controlling terminal.
+os.kill(pid, sig, /) #Send signal sig to the process pid.
+os.killpg(pgid, sig, /) #Send the signal sig to the process group pgid.
+os.plock(op, /) #Lock program segments into memory.
+os.popen(cmd, mode='r', buffering=- 1) #Open a pipe to or from command cmd.
+os.times()
+"""
+os.times()
+Returns the current global process times. The return value is an object with five attributes:
+
+    user - user time
+    system - system time
+    children_user - user time of all child processes
+    children_system - system time of all child processes
+    elapsed - elapsed real time since a fixed point in the past
+
+"""
+os.wait() #Wait for completion of a child process
+os.waitid(idtype, id, options, /) #Wait for the completion of a child process.
+os.waitpid(pid, options, /)
+os.cpu_count() #Islemcinin kac cekirdek oldugunu gormek icin.
+os.getloadavg() #Ortalama sistem calistirma kuyrugundaki islem sayisini dondurur.
+os.curdir #Geçerli dizine başvurmak için işletim sistemi tarafından kullanılan sabit dize. Bu, '.'
+os.pardir #İşletim sistemi tarafından üst dizine başvurmak için kullanılan sabit dize. Bu, '..'
+os.sep #Yol adı bileşenlerini ayırmak için işletim sistemi tarafından kullanılan karakter. Bu '/'
+os.linesep #Geçerli platformdaki satırları ayırmak (veya daha doğrusu sonlandırmak) için kullanılan dize.Bu '\n'
+os.getrandom(size, flags=0) #Get up to size random bytes. The function can return less bytes than requested.These bytes can be used to seed user-space random number generators or for cryptographic purposes.
+os.urandom(size, /) #Return a bytestring of size random bytes suitable for cryptographic use.
+
+
 print(os.stat("dosya_adi")) #Bazi ozelliklerini gosterir ayni saga tiklayip baktigimiz gibi
 print(os.stat("dosya_adi").st_mtime) # sn cinsinde degisiklik yapildigi zamani gosterir
 from datetime import datetime
@@ -1040,6 +1330,25 @@ print(datetime.fromtimestamp(os.stat("dosya_adi").st_mtime)) #bu sekiyde daha an
 for i in os.walk("C:/Users/Salih/Desktop"): #dizindeki tum dosyalari konumlariyla yazdirmak icin.Ayni dosya gezgini gibi calisir "" arasina istedigin bir dosya konumunu yazabilirsin yalniz aralainda / olacak dikkat.
     print(i)
 for i,j,k in os.walk("C:/Users/Salih/Desktop"): #i = Dosya Konumu , j = Klasor Ismi , k = Dosya Ismi
+
+
+#SYS
+#Terminalde calisma yapmak icin
+import sys 
+sys.argv[1] #komut satirindaki degeri string olarak aliyor. 0 index dosyanin ismi var o yuzden 1 aldik baska index alabiliriz.
+
+if len(sys.argv) < 2:
+	sys.exit("Bir arguman eksik girildi.")
+
+for arg in sys.argv[1:]: #Ilk arguman dosya ismi oldgundan 1 den baslatamasini sagladik.
+    print(arg) #Tum argumanlari gorebiliriz.
+    
+sys.path #Python dosyalarinin yollarini gosterir.
+sys.platform #Hangi platformda oldugunu gosterir.Ornek 'linux' olarak cikti verir.
+sys.prefix # /usr
+sys.version #Versionu gormek icin.
+sys.api_version #C API versiyonunu gormek icin.
+sys.version_info
 
 import sys #sys modulunu import etmemize yariyor.
 sys.exit() #Cikis yapmak icin kullanilir.Calistirildiginda diger kodlar calismaz ve sonlanir.
@@ -1050,6 +1359,39 @@ sys.stderr.write("Bu hata mesaji \n") #Bu sekilde hata mesaji yazabilir.
 sys.stderr.flush() #Hatali mesaji ekrana yazdirabiliriz.
 sys.stdout.write("Mesaj\n") #Normal bir yazida yazdirabiliriz.
 sys.argv[x] #komut satirindan calistirdigimazdaki giridleri almaya yariyor.
+
+#Argparse
+import argparse
+
+parser = argparse.ArgumentParser(description="Toplam hesaplanir.")
+parser.add_argument("-x", default=0, help="Toplanacak sayi", type=int)
+parser.add_argument("-y", default=0, help="Toplanacak sayi", type=int)
+args = parser.parse_args()
+
+def topla(x, y):
+    return x+y
+
+print("Toplam =",topla(args.x,args.y))
+
+python dosya.py --help #Bu sekilde help ve description gorebiliriz.
+python dosya.py -x 10 -y 20 #Bu sekilde cagirip kullanabiliriz.
+
+#Secrets
+import secrets #Generate secure random numbers for managing secrets
+"""
+The secrets module is used for generating cryptographically strong random numbers suitable for managing data such as passwords, account authentication, security tokens, and related secrets.
+
+In particular, secrets should be used in preference to the default pseudo-random number generator in the random module, which is designed for modelling and simulation, not security or cryptography.
+"""
+liste = [5,7,8,9,0,1,4,2,3]
+secrets.choice(liste) #Return a randomly chosen element from a non-empty sequence.
+secrets.randbelow(n) #Return a random int in the range [0, n).
+secrets.randbits(k) #Return an int with k random bits.
+secrets.token_bytes(n) #n bytelik token olusturmak icin.
+secrets.token_hex(n) #hexadecimal token olusturmak icin.
+secrets.token_urlsafe(n) #Return a random URL-safe text string, containing nbytes random bytes.
+secrets.compare_digest(a, b) #Return True if strings or bytes-like objects a and b are equal, otherwise False, using a “constant-time compare” to reduce the risk of timing attacks. See hmac.compare_digest() for additional details.
+
 
 from urllib import request
 resp = request.urlopen("www.co")
@@ -1930,6 +2272,13 @@ innerIndex = ["1.","2.","3.","1.","2.","3."] #Icteki grup icin bu sekilde yaziyo
 oii = list(zip(outerIndex,innerIndex))
 df = pd.DataFrame([(11,5,6),(7,8,9),(4,5,6),(11,50,60),(70,80,90),(40,50,60)],oii,["Col1", "Col2", "Col3"]) #index bolumune oii ekledik sadece digerleri kullandigimiz yontemler.
 print(df["Col2"]) #Yine kolonlari yazdimak icin bu sefer tabloda grup ve icteki index degerleride ekrana gelecek bu islemleri klasorlemek gibi dusunebilirz.
+survived = (titanic_data.Survived == 1).sum() #Yapi olarak kosullari bu yapida verilebiliyor.
+minors = (titanic_data.Age < 18).sum() #Bu da baska bir ornek
+
+total = len(titanic_data)
+survived_fraction = (titanic_data.Survived == 1).sum() / total
+survived_fraction = (titanic_data.Survived == 1).sum() / total * 100 #Yuzdelik olarak ne kadar kisi kurtulmus bulmak icin.
+
 print(df.iloc[0]) #Ilk grup1deki ilk satiri gosteriyor.
 print(df.iloc[0][0]) #Ilk grubun ilk satirin ilk stun degeri gostermek icin.
 print(df.loc["Group2"].loc["2."]["Col1"]) #Yukardaki islemin farkli gosterimi bunuda kullanabilirsin.
@@ -1963,6 +2312,8 @@ subGroup.max() #Ilgili grouptaki en buyuk degerler gosterilecek.
 subGroup.min() #Ilgili grouptaki en kucuk degerler gosterilecek.
 subGroup.mean() #Ilgili grouptaki ortalamasini  gosterilecek.
 #subGroup.mean().loc["IT"] yukarida satir ve stundaki ilgili blogun alinmasi islemleri burdada yine gecerli tekrar ele alinmadi.
+subClass.describe().transpose() # DataFrame transpose islemi uygulanarak daha okunakli hale getirilebilir.
+data.describe(include="all").T #transpose islemini .T ile de yapilabilir ayni islemlerdir.Matlab gibi farklilik gostermezler.
 subGroup.mean()["Maas"]["IT"] #Degeri tablodan bagimsiz olarak almak ve kullanmak icin bu sekilde yapilabilir.
 dataset1 = {"Alan":["IT","İnsan Kaynaklari","Pazarlama","Pazarlama","IT","IT"],"Calisan": ["Mustafa","Ali","Kenan","Zeynep","Murat","Ahmet"],"Maas":[3000,3500,2500,4500,4000,2000]}
 dataset2 = {"Alan":["IT","İnsan Kaynaklari","Pazarlama","Pazarlama","IT","IT"],"Calisan": ["Mahmut","Ali","Furkan","Sila","Murat","Ahmet"],"Maas":[3000,3500,5500,4500,4000,8000]}
@@ -2006,55 +2357,22 @@ dosya_ok = pd.read_fileFormat("dosya_adi.fileFormat") #Sadece csv degil bircok d
 dosya_ok.to_fileFormat("dosya_adi.fileFormat") #Yine ayni sekilde okudugumuz gibi bircok yosya formatiyla kaydetmek mumkun.
 #Fakat fileFormat yerine ozel bir yazim olabilir arastirmanizda yarar var fakat genel gosterim olmasi adina bu sekilde yazildi.
 
-#Matplotlib ile Veri Gorsellestirme
-import matplotlib.pyplot as plt #Matplotlib kutuphanesini import etmek icin.
-%matplotlib inline #jupyter notebook kullandigimizda veri gorsellestirmeyi gormek icin ekelememiz gerekiyor.
-plt.show() #Dosya kullandigimizda veri gorsellestirmeyi gormek icin ekelememiz gerekiyor.
-x = [0,1,2,3,4]
-y = [0,1,4,9,16]
-plt.plot(x,y,"blue") #plot() cizme islemi icin ornekte x ve y olarak verdigimiz kordinatlarda cizme islemi yapacak.Cizimdeki renk ornekte blue ama istedgimiz bir renk verebiliriz.RGB kodu olarak girebiliriz.
-plt.show() #Jupyter notebook bunu eklemesek calisiyor fakat farkli dosyadan okuyan olabilir icin
-plt.subplot(2,2,1) #satir,stun.index degeri olarak veriyoruz bu sekilde 4 tane grafik cizebiliyoruz.
-plt.plot(x,y,"black")
-plt.subplot(2,2,2) #satir ve stun degerleri buyudukce grafik dahada kuculuyor.2 den kucuk satir ve stun degerlerde ondalik sayilarda hata veriyor.
-plt.plot(x,y,"blue")
-plt.subplot(2,2,3)
-plt.plot(x,y,"green")
-plt.subplot(2,2,4) 
-plt.plot(x,y,"orange")
-plt.show()
+pip install fastparquet #Apache Parquet is an open source, column-oriented data file format.parquet dosya islemleri icin gereklidir.
+data = pd.read_parquet("dosya.parquet") #Parquet dosyasini okumak islemi islemi icin.
 
-fig = plt.figure() #Bir figure olusturmak icin yapiyoruz.
-fig = plt.figure(figsize = (5,5)) #figsize ile grafigin boyutunu belirleyebiliriz.
-axes = fig.add_axes([0.1,0.1,0.5,0.5]) #Bir grafik eklemek icin yapiyoruz.
-#      soldan ne kadar icired olacak,asagidan ne kadar iceride olacak,x duzleminde ne kadar buyuklugu olacak,y duzleminde ne kadar buyuklugu olacak.
-axes.set_xlabel("X Kordinati") #x kordinatinda bilgi yazisi gibi dusunebiliriz.
-axes.set_ylabel("Y Kordinati") #y kordinatinda bilgi yazisi gibi dusunebiliriz.
-axes.set_title("Ilk Grafik")   #Grafigin ust kisminda tablonun  bilgi yazisi gibi dusunebiliriz.
-fig,axes = plt.subplots(2,2) #4 tane grafik olusturmak icin yaptik.
-plt.tight_layout() #Bu islem grafiklerin arasinda bosluk olmasini sagliyor.
-fig,axes = plt.subplots(2,1) #2 tane grafik cizdirdik.
-axes[0].plot(x,y) #1.Grafik icin cizim yaptik
-axes[1].plot(x,y) #2.Grafik icin cizim yaptik
-for ax in axes:#Yukaridaki iki islemi bir for dongusuyle yapilabilir.
-    ax.plot(x,y)
-plt.show()
-fig,axes = plt.subplots(2,1,figsize = (10,10)) #Bu sekilde de grafik boyutu belirlenebilir.
-fig.savefig("fig1.jpg") #Bu grafikleri kaydetmek istersek yine benzer sekilde istedigimiz formatta kaydetmek mumkun.Burda normal dosya uzantilari seklinde yazmamiz yeterlidir.
-plt.plot(x2,y2,"#00ff00") #Ayni grafikte birden fazla cizim yapilabilir.
-fig = plt.figure(figsize = (5,5))
-axes = fig.add_axes([0,0,1,1])
-axes.plot(x,y,"yellow",lw = 10,label = "Dogrusal Grafik") #lw cizimin kalinligini ayarlamaya yariyor.lw yerine linewidht yazilabilir biz kisa oldugu icin lw kullandik.
-axes.plot(x2,y2,"blue",label ="Dikey Grafik") #label ile isim cizime isim veriyoruz legend ile gozukecek.
-axes.plot(x2,y2,"blue",lw = 5, ls = "--",label ="Dikey Grafik") #ls cizimin nasil gozukmesini istedigimizi belirtmek icin kullaniyoruz yine ls yerine linestyle kullanabiliriz.":" noktali cizim icin , "--" cizikli cizim icin, "-." hem kesikli hem noktali bir cizim icin
-axes.plot(x2,y2,"blue",lw = 5, ls = "--",marker = "o", label ="Dikey Grafik") #Marker adindan anlasilacagi gibi isaretleme yapiyor x kordinatindaki degerleri "o" daire icine aliyor.
-axes.plot(x2,y2,"blue",lw = 5,marker = "o",markersize = 8,markerfacecolor = "black", label ="Dikey Grafik") #markersize ile isaretleri cizim boyutunu istedigimiz bir degerde yapabiliriz.markarcolor ile isaretlmeye renk varabiliriz.Ayni renk olduklari icin tam net gozukmuyor.
-axes.plot(x2,y2,"blue",lw = 5,marker = "o",markersize = 8,markerfacecolor = "black",markeredgecolor = "green", markeredgewidth = 5,label ="Dikey Grafik") #markeredgecolor ile kenarin renk verebiliriz.markeredgewidth
-axes.legend() #Bu grafigin sol ust kosesinde cizimleri renk olarak ve label ismine gore tanitim icin ekliyor.
-plt.tight_layout()
-plt.show()
-axes.set_xlim(0,10) #x kordinatinin hangi degerler kadar olacagini burda giriyoruz.Bunlari bir cizim farkli bir degerde basliyorsa grafigi buyutmek icin kullanilabilir.Cizimlerin degrelerinden kucuk verilrse bu seferde o degere kadar cizilecek ve orda bitecek.
-axes.set_ylim(0,20) #y kordinatinin hangi degerler kadar olacagini burda giriyoruz.Bu sekilde grafik buyutulurse okuma islemi degisebiliyor noktalarin bazilarinin yerine farkli geliyor ayni oranda bir buyume olmasi icin kullanim nasil olacaksa o sekilde duzenleyebilirsiniz.
+
+import pyperclip as pc
+#Text olarak kullanilacak copyalama islemleri to_clipboard hata veriyor.Bu yuzden bu pyperclip kullanilabilir.
+"""
+sudo apt-get install xsel
+sudo apt-get install xclip
+pip install gtk
+pip install PyQt4
+
+#Not: bazi apt paketleri eklemek gerekebilir.Calistirildiginda hata veriyorsa ornek Not Implemented Error gibi paket yuklemek gerekebilir.
+"""
+pc.copy("Bu yaziyi kopyala") #Kopyalanamak istenen metin giriliyor.
+pc.paste() #Clipboard almak icin.
 
 #Garbage Collector(gc)
 gc.enable() #Otomatik gc calismasini etkinlestirmek icin 
@@ -2356,7 +2674,44 @@ def mainfunc():
 if __name__ == "__main__":
     mainfunc()
 
- 
+
+#Regular Expressions or regex
+import re
+
+email = input("Lutfen e-mail adresinizi giriniz: ")
+
+if re.search(r"^[a-z0-9_].+@[a-z0-9_]+\.edu\.tr$", email): #Koseli parantezlerdeki yapilara benzer sekilde \w kullanilabilir.
+    print("E-mail adresiniz dogrulandi.")
+else:
+    print("E-mail adresinizi yanlis girdiniz.")
+
+#+ * ? kac tane olacaginin kontrolunu yaparken bastaki ^ ve sondaki $ nasil baslayip bitemesi gerektigini belirtmek icin kullanilir.
+#? 0 ve 1 yani 1 tane veya hic karaketerden olmamalidir.
+#Sonunda nasil yapi oldugu bilinmiyor ise $ kullanilmaz.
+
+
+if re.search(r"^[a-z0-9_].+@[a-z0-9_]+\.edu\.tr$", re.IGNORECASE ,email): #IGNORECASE ile buyuk kucuk harfe bakmaz.
+#re.DOTALL ve re.MULTILINE gibi parametreleri de var.
+
+#re.match() ve re.fullmatch() search benzer yapidadir. match baslangicta ^ eklenmesine fullmatch ise baslangi ^ sonunda $ eklenmesine gerek yoktur.
+
+
+refName = input("Lutfen referans ismi giriniz: ").strip()
+
+if kontrol := re.search(r"^(.+), *(.+)$", refName):
+    soyad, ad = kontrol.groups()
+    soyad, ad = kontrol.group(1), kontrol.group(2) #Yukaridaki ile ayni islemi yapacaktir.
+    print(ad,soyad)
+else:
+    print(refName)
+    
+print(userName.removeprefix("https://github.com/").removesuffix("?tab=repositories")) #Basit bir yontem ile kullanici adini duzgun girmis ise alabiliriz.
+
+if kontrol := re.sub(r"^((https?://)?(www\.)?github\.com/)", "", userName): #search gibi sub kullanilabilir.
+    print(kontrol)
+
+#re.split()  re.findall() gibi yontemler de mevcuttur.
+
 #PyScript
 <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
 <script defer src="https://pyscript.net/latest/pyscript.js"></script> 
@@ -2864,6 +3219,52 @@ tabula.convert_into(input_path, "output.csv", output_format="csv", pages="77-78,
 import google.colab import files
 dosya = files.upload() #Dosya secip colab yuklemnin farkli bir yolu
 
+
+#Gradio
+#Gradio daha cok yapay zeka yogunlasmis hazir arayuzler iceren bir kutuphanedir.
+import gradio as gr
+
+#Ekranda chat alanina yapay zeka cevabi gostermesi icin.history parametresi bulunmasi gerekiyor yoksa hata veriyor.
+def answerme(message, history):
+    response = model.generate_content(message)
+    return response.text
+
+#Chatbot arayuzu icin
+chat = gr.ChatInterface(
+    fn=answerme, examples=["Google", "Bard", "Gemini"], title="Bard ChatBot"
+)
+#examples olarak belirtilen promptlar hazir ornek sablon olarak alta ekleniyor.
+#title baslik veriyor ama browser barina degil.
+#fn fonskiyon ismi giriliyor bu orenekte answerme doc echo olarak yer aliyordu.
+
+chat.launch() #Bu satir eklendigi icin dosyayi calistirmak yetiyor terminale ek olarak streamlit gibi ozel calistirmaya gerek kalmiyor.
+
+#Gradio-Lite server olamdan browser uzerinden calistirmak icin.
+#HTML dosyasi ile yazilir.
+<html>
+	<head>
+		<script type="module" crossorigin src="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.css" />
+	</head>
+	<body>
+		<gradio-lite theme="dark">
+		<gradio-file name="app.py" entrypoint> <!-- Baska dosyalar ile islem yaparken adini entrypoint eklenmelidir. -->
+		</gradio-lite>
+		
+		<!-- Dokumanda paketlerin eklenecegi bolum ici ice verilmis -->
+		<gradio-lite>
+		<gradio-requirements>
+			transformers_js_py
+		</gradio-requirements>
+		</gradio-lite>
+		<gradio-lite theme="dark">
+		</gradio-lite>
+	</body>
+</html>
+
+
+
+
 #Numpy
 import numpy as np
 
@@ -2931,6 +3332,7 @@ arr = np.hstack((arr1, arr2.reshape(9,))) #hstack == horizontal stack. Yatayda e
 #Fakat boyutlari fakli oldugu icin reshape yapmak zorunda kaldik.
 
 print(np.pi) #pi degeri icin np.pi kullanabilirsin.
+np.arange(0,10,1) #Baslangic bitis ve adim degeri vererek numpy array olusturmaya yariyor.
 arr = np.linspace(1,10,3) #Linspace ise baslangic, bitis, kac sayi olacagini belirtir.linspace == linear space
 arr = np.linspace(1,10,100)
 #Not baslangic ve bitis degerlerini dahil eder.
@@ -3327,6 +3729,11 @@ veri["boy"] = veri["boy"].apply(cevir) #Yazmis oldugumuz fonksiyonlari apply ile
 veri["boy"] = veri["boy"].map(lambda x : x / 100) #map ile uygulayabiliriz.
 print(veri.applymap(arttir)) #Tum veri setine islemi uygulamak icin applymap() kullaniyoruz.
 
+pd.options.display.float_format = '{:,.2f}'.format #Ondalik gosterimi formatlayarak DataFrame gosterimini degistirebiliriz.
+#Not: Yukaridaki yontem sadece gosterimde farklilik gosterir. DataFrame kaydedildiginde degismez.
+data.describe(include="all").applymap('{:,.2f}'.format) #Kaydederkende ondalik gostermini degistirmek icin bu yontem kullanilabilir.
+#Not: Yukaridaki yontem ayar degisikligi olmadan yaptigi icin DataFrame gosteriminde ilerde bozulmaya neden olmaz.
+
 print(veri.groupby("cinsiyet").agg(["mean", "median", "std"])) #agg ile uygulamak istedigimiz yontemleri belirtebiliriz.
 print(veri.groupby("cinsiyet").agg(["sum", "max", "min"])) #Bircok methodu uygulayabiliriz.
 veri.groupby("cinsiyet").sum() #Tum ozelliklerde cinsiyetlere gore toplamlarini verecek.
@@ -3383,15 +3790,6 @@ PandasAI(llm, save_charts=True) #Grafigi kaydetmek icin.Grafikler ./pandasai/exp
 PandasAI(llm, enforce_privacy = True) #enforce_privacy = True parametresi ile gizlilik saglanabilir.
 pandas_ai([employees_df, salaries_df], prompt=given_prompt) #Birden fazla veri seti ile islem yapmak icin.
 
-#Pandas Profiling
-pip install pandas-profiling
-pip install ipywidgets #HTML dosyalari notebookta gormek icin
-import ipywidgets
-import pandas_profiling as pp # Kesifsel Veri Analizi (EDA) icin bir kutuphanedir.
-pp.ProfileReport(veri) #Veri setinin tum raporunu gormek tek tek veri anlama kodlarina gerek kalmadan korelasyonu dahil gosteriyor.
-report = pp.ProfileReport(veri)
-report.to_file("rapor.html")
-
 """
 #Terminal ayarlari
 pai --help
@@ -3416,11 +3814,32 @@ llm = OpenAI(api_token="YOUR_API_KEY")
 # Starcoder
 llm = Starcoder(api_token="YOUR_HF_API_KEY")
 
+#Pandas Profiling
+pip install pandas-profiling
+pip install ipywidgets #HTML dosyalari notebookta gormek icin
+import ipywidgets
+import pandas_profiling as pp # Kesifsel Veri Analizi (EDA) icin bir kutuphanedir.
+pp.ProfileReport(veri) #Veri setinin tum raporunu gormek tek tek veri anlama kodlarina gerek kalmadan korelasyonu dahil gosteriyor.
+report = pp.ProfileReport(veri)
+report.to_file("rapor.html")
 
+# Veri Gorsellestirme
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+y_pred = model.predict(X_test) #Literaturde test verisinin sonuclarina bakilir bu sebeple once tahmin edilmelidir. 
+disp = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(y_test, y_pred, labels=model.classes_), display_labels=model.classes_) #
+disp.plot()
+plt.show()
+
+from sklearn.metrics import RocCurveDisplay #ROC Curve grafigini goremek icin.
+fig = plt.figure()
+RocCurveDisplay.from_predictions(y_test, y_pred, name="SVC") #name parametresine model ismini veriyoruz.
+plt.savefig("ROC.pdf", transparent=True, bbox_inches = "tight")
 
 #Matplotlib
+pip install matplotlib
 from matplotlib import pyplot as plt
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 %matplotlib notebook #Bu satir ile interaktif olarak gosterecek grafikleri
 %matplotlib inline #Bu satir ile statik gosterimde bulunacak.Daha farkli gosterimler mevcut.
 %lsmagic #Daha fazla sihirli fonksiyonlar icin bu komut ile bakabilirsin. 
@@ -3431,6 +3850,54 @@ plt.plot(x, np.cos(x), label= "cos") #Etiketlemek ve lejantta gormek icin label 
 plt.plot(x, np.sin(x), label= "sin")
 #Birden fazla grafigi ayni anda cizdirmek mumkun.Sadece plot degil diger grafiklerde de destekliyor.
 plt.legend() #lejant gorstmek icin.
+
+plt.show() #Dosya kullandigimizda veri gorsellestirmeyi gormek icin ekelememiz gerekiyor.
+x = [0,1,2,3,4]
+y = [0,1,4,9,16]
+plt.plot(x,y,"blue") #plot() cizme islemi icin ornekte x ve y olarak verdigimiz kordinatlarda cizme islemi yapacak.Cizimdeki renk ornekte blue ama istedgimiz bir renk verebiliriz.RGB kodu olarak girebiliriz.
+plt.show() #Jupyter notebook bunu eklemesek calisiyor fakat farkli dosyadan okuyan olabilir icin
+plt.subplot(2,2,1) #satir,stun.index degeri olarak veriyoruz bu sekilde 4 tane grafik cizebiliyoruz.
+plt.plot(x,y,"black")
+plt.subplot(2,2,2) #satir ve stun degerleri buyudukce grafik dahada kuculuyor.2 den kucuk satir ve stun degerlerde ondalik sayilarda hata veriyor.
+plt.plot(x,y,"blue")
+plt.subplot(2,2,3)
+plt.plot(x,y,"green")
+plt.subplot(2,2,4) 
+plt.plot(x,y,"orange")
+plt.show()
+
+fig = plt.figure() #Bir figure olusturmak icin yapiyoruz.
+fig = plt.figure(figsize = (5,5)) #figsize ile grafigin boyutunu belirleyebiliriz.
+axes = fig.add_axes([0.1,0.1,0.5,0.5]) #Bir grafik eklemek icin yapiyoruz.
+#      soldan ne kadar icired olacak,asagidan ne kadar iceride olacak,x duzleminde ne kadar buyuklugu olacak,y duzleminde ne kadar buyuklugu olacak.
+axes.set_xlabel("X Kordinati") #x kordinatinda bilgi yazisi gibi dusunebiliriz.
+axes.set_ylabel("Y Kordinati") #y kordinatinda bilgi yazisi gibi dusunebiliriz.
+axes.set_title("Ilk Grafik")   #Grafigin ust kisminda tablonun  bilgi yazisi gibi dusunebiliriz.
+fig,axes = plt.subplots(2,2) #4 tane grafik olusturmak icin yaptik.
+plt.tight_layout() #Bu islem grafiklerin arasinda bosluk olmasini sagliyor.
+fig,axes = plt.subplots(2,1) #2 tane grafik cizdirdik.
+axes[0].plot(x,y) #1.Grafik icin cizim yaptik
+axes[1].plot(x,y) #2.Grafik icin cizim yaptik
+for ax in axes:#Yukaridaki iki islemi bir for dongusuyle yapilabilir.
+    ax.plot(x,y)
+plt.show()
+fig,axes = plt.subplots(2,1,figsize = (10,10)) #Bu sekilde de grafik boyutu belirlenebilir.
+fig.savefig("fig1.jpg") #Bu grafikleri kaydetmek istersek yine benzer sekilde istedigimiz formatta kaydetmek mumkun.Burda normal dosya uzantilari seklinde yazmamiz yeterlidir.
+plt.plot(x2,y2,"#00ff00") #Ayni grafikte birden fazla cizim yapilabilir.
+fig = plt.figure(figsize = (5,5))
+axes = fig.add_axes([0,0,1,1])
+axes.plot(x,y,"yellow",lw = 10,label = "Dogrusal Grafik") #lw cizimin kalinligini ayarlamaya yariyor.lw yerine linewidht yazilabilir biz kisa oldugu icin lw kullandik.
+axes.plot(x2,y2,"blue",label ="Dikey Grafik") #label ile isim cizime isim veriyoruz legend ile gozukecek.
+axes.plot(x2,y2,"blue",lw = 5, ls = "--",label ="Dikey Grafik") #ls cizimin nasil gozukmesini istedigimizi belirtmek icin kullaniyoruz yine ls yerine linestyle kullanabiliriz.":" noktali cizim icin , "--" cizikli cizim icin, "-." hem kesikli hem noktali bir cizim icin
+axes.plot(x2,y2,"blue",lw = 5, ls = "--",marker = "o", label ="Dikey Grafik") #Marker adindan anlasilacagi gibi isaretleme yapiyor x kordinatindaki degerleri "o" daire icine aliyor.
+axes.plot(x2,y2,"blue",lw = 5,marker = "o",markersize = 8,markerfacecolor = "black", label ="Dikey Grafik") #markersize ile isaretleri cizim boyutunu istedigimiz bir degerde yapabiliriz.markarcolor ile isaretlmeye renk varabiliriz.Ayni renk olduklari icin tam net gozukmuyor.
+axes.plot(x2,y2,"blue",lw = 5,marker = "o",markersize = 8,markerfacecolor = "black",markeredgecolor = "green", markeredgewidth = 5,label ="Dikey Grafik") #markeredgecolor ile kenarin renk verebiliriz.markeredgewidth
+axes.legend() #Bu grafigin sol ust kosesinde cizimleri renk olarak ve label ismine gore tanitim icin ekliyor.
+plt.tight_layout()
+plt.show()
+axes.set_xlim(0,10) #x kordinatinin hangi degerler kadar olacagini burda giriyoruz.Bunlari bir cizim farkli bir degerde basliyorsa grafigi buyutmek icin kullanilabilir.Cizimlerin degrelerinden kucuk verilrse bu seferde o degere kadar cizilecek ve orda bitecek.
+axes.set_ylim(0,20) #y kordinatinin hangi degerler kadar olacagini burda giriyoruz.Bu sekilde grafik buyutulurse okuma islemi degisebiliyor noktalarin bazilarinin yerine farkli geliyor ayni oranda bir buyume olmasi icin kullanim nasil olacaksa o sekilde duzenleyebilirsiniz.
+
 """
 legend loc parameter values:
 Location String             Location Code
@@ -3666,6 +4133,59 @@ sns.kdeplot(veri.boy, shade= True ,color= "blue") #kde grafigi cizdirmek icin kd
 #kdeplot shade parametresi golge olup olmayacagini , color parametresi renginin ne olacagini belirmek icin.
 sns.jointplot(x="boy",y= "kilo",data=veri, kind= "reg") #Joinplot ile birlesik grafikler gosterebiliriz.
 #catplot grafigi de var fakat tam olarak ne icin kullanildigini bilmiyorum.
+
+#Statistics
+from statistics import median
+from math import isnan
+from itertools import filterfalse
+data = [20.7, float('NaN'),19.2, 18.3, float('NaN'), 14.4]
+sum(map(isnan, data)) # Number of missing values
+clean = list(filterfalse(isnan, data))  # Strip NaN values
+clean #[20.7, 19.2, 18.3, 14.4] NaN degerler silinmistir.
+
+"""
+Averages and measures of central location
+These functions calculate an average or typical value from a population or sample.
+
+mean()				Arithmetic mean (“average”) of data.
+fmean()				Fast, floating point arithmetic mean, with optional weighting.
+geometric_mean()	Geometric mean of data.
+harmonic_mean()		Harmonic mean of data.
+median()			Median (middle value) of data.
+median_low()		Low median of data.
+median_high()		High median of data.
+median_grouped()	Median, or 50th percentile, of grouped data.
+mode()				Single mode (most common value) of discrete or nominal data.
+multimode()			List of modes (most common values) of discrete or nominal data.
+quantiles() 		Divide data into intervals with equal probability.
+
+
+Measures of spread
+These functions calculate a measure of how much the population or sample tends to deviate from the typical or average values.
+
+pstdev()			Population standard deviation of data.
+pvariance()			Population variance of data.
+stdev()				Sample standard deviation of data.
+variance()			Sample variance of data.
+
+
+Statistics for relations between two inputs
+These functions calculate statistics regarding relations between two inputs.
+
+covariance()			Sample covariance for two variables.
+correlation()			Pearson’s correlation coefficient for two variables.
+linear_regression()		Slope and intercept for simple linear regression.
+
+Source : https://docs.python.org/3/library/statistics.html?highlight=statistic#module-statistics
+"""
+
+from statistics import * #Istatistiksel hesaplamalar icin.
+
+liste = [1, 2, 8, 5, 9, 7, 1, 4, 1]
+
+print(median(liste))
+print(mean(liste))
+print(mode(liste))
 
 #SciPy
 from scipy.fft import fft, fftfreq #fft == Fast Fourier Transforms icin
@@ -3977,6 +4497,8 @@ break_tiesbool, default=False
 Boyut arttirmamizin nedeni verileri ayristirmayi kolaylastirmak icin.
 """
 
+SVC().get_params().keys() #Parametre isimlerini goremek icin kullanilabilir.
+
 #Naive Bayes
 """
 B kosulu altinda A'nin gerceklesme olasiligi
@@ -4245,6 +4767,67 @@ Regression
 "d2_tweedie_score"                      metrics.d2_tweedie_score
 	
 
+
+
+
+
+sklearn.metrics.get_scorer_names() #scoring parametresi icin gecerli olan metrics adlari listesi
+
+['accuracy',
+ 'adjusted_mutual_info_score',
+ 'adjusted_rand_score',
+ 'average_precision',
+ 'balanced_accuracy',
+ 'completeness_score',
+ 'explained_variance',
+ 'f1',
+ 'f1_macro',
+ 'f1_micro',
+ 'f1_samples',
+ 'f1_weighted',
+ 'fowlkes_mallows_score',
+ 'homogeneity_score',
+ 'jaccard',
+ 'jaccard_macro',
+ 'jaccard_micro',
+ 'jaccard_samples',
+ 'jaccard_weighted',
+ 'matthews_corrcoef',
+ 'max_error',
+ 'mutual_info_score',
+ 'neg_brier_score',
+ 'neg_log_loss',
+ 'neg_mean_absolute_error',
+ 'neg_mean_absolute_percentage_error',
+ 'neg_mean_gamma_deviance',
+ 'neg_mean_poisson_deviance',
+ 'neg_mean_squared_error',
+ 'neg_mean_squared_log_error',
+ 'neg_median_absolute_error',
+ 'neg_negative_likelihood_ratio',
+ 'neg_root_mean_squared_error',
+ 'normalized_mutual_info_score',
+ 'positive_likelihood_ratio',
+ 'precision',
+ 'precision_macro',
+ 'precision_micro',
+ 'precision_samples',
+ 'precision_weighted',
+ 'r2',
+ 'rand_score',
+ 'recall',
+ 'recall_macro',
+ 'recall_micro',
+ 'recall_samples',
+ 'recall_weighted',
+ 'roc_auc',
+ 'roc_auc_ovo',
+ 'roc_auc_ovo_weighted',
+ 'roc_auc_ovr',
+ 'roc_auc_ovr_weighted',
+ 'top_k_accuracy',
+ 'v_measure_score']
+
 """
 
 #Deep learning (DL) == Derin Ogrenme
@@ -4498,6 +5081,127 @@ automl.fit(X_train, y_train)
 
 from autosklearn.experimental.askl2 import AutoSklearn2Classifier #2.0 cikmis
 
+import autosklearn.classification
+import autosklearn.metrics #Metric eklenmediginde hata veriyor.
+
+clf = autosklearn.classification.AutoSklearnClassifier()
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+
+clf.show_models #Hangi model oldugunu gormek icin.
+pprint(automl.show_models(), indent=4) #Gosterimi farklilastirmak icin indent eklenebilir.
+clf.cv_results_ #Optimizasyon sonuclarini gormek icin.
+clf.cv_results_['mean_test_score'] #Test sonuclarini gosterir.
+print(automl.leaderboard()) #En iyi sonuclari listeler.
+
+
+results = list()
+scores = pd.DataFrame()
+
+accuracy_rate = accuracy_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred,average='micro')
+recall =recall_score(y_test, y_pred,average='micro')
+f1 = f1_score(y_test, y_pred,average='micro')
+kappa = cohen_kappa_score(y_test, y_pred)
+
+score = [accuracy_rate,precision,recall,f1,kappa]
+score = pd.DataFrame(score)
+scores = pd.concat([scores, score],axis=1,ignore_index=True)
+
+s = pd.DataFrame(["Accuracy","Precision", "Recall", "F1","Cohen’s Kappa"])
+scores = pd.concat([s,scores],axis=1,ignore_index=True)
+
+scores.set_axis(["Metrics","Scores"],axis=1,inplace=True)
+
+print("AutoML Sonuclari")
+print(scores)
+
+
+coef = np.array(linear_svc.coef_)
+coef[0]
+len(coef[0])
+len(coef[coef > 0])
+inde = list()
+for i in range(len(coef[0])):
+  if(coef[0][i]>0):
+    inde.append(i)
+print(inde)
+
+#Keras_NLP
+import keras
+import keras_nlp
+
+#Default olarak Tensorflow kullaniyor o yuzden duzenlenmeye gerek olmayabilir.
+os.environ["KERAS_BACKEND"] = "jax"  # or "tensorflow" or "torch"
+
+keras.mixed_precision.set_global_policy("mixed_float16") #Egitimi hizlandirmak icin
+
+
+from keras_nlp.models import GPT2CausalLM
+gpt2_lm = GPT2CausalLM.from_preset("gpt2_base_en") #Modelin baz alacagi preset belirtmek icin.
+
+"""
+Preset name 				Parameters 		Description
+gpt2_base_en 				124.44M 		12-layer GPT-2 model where case is maintained. Trained on WebText.
+gpt2_medium_en 				354.82M 		24-layer GPT-2 model where case is maintained. Trained on WebText.
+gpt2_large_en 				774.03M 		36-layer GPT-2 model where case is maintained. Trained on WebText.
+gpt2_extra_large_en 		1.56B 			48-layer GPT-2 model where case is maintained. Trained on WebText.
+gpt2_base_en_cnn_dailymail 	124.44M 		12-layer GPT-2 model where case is maintained. Finetuned on the CNN/DailyMail summarization dataset.
+
+"""
+
+gpt2_lm.compile(sampler="greedy") #compile ayarlama yapilabilir.
+gpt2_lm.generate("prompt", max_length=40)
+#max_length opsiyonel fakat parametre eklenmedigin cok fazla sonuc veriyor ve hepsi ayni sonuclar.
+#generate direkt metin olarak gosterim yapiyor.Bir degiskene atayip print ile daha duzgun gozukmesi saglanabilir.
+prompt = input("Lutfen prompt giriniz : ")
+result = gpt2_lm.generate(prompt, max_length=40)
+print(result)
+
+
+from keras_nlp.models import OPTCausalLM
+opt_lm = OPTCausalLM.from_preset("opt_125m_en")
+opt_lm.compile(sampler="greedy")
+opt_lm.generate("prompt", max_length=40)
+
+"""
+Preset name 	Parameters 	Description
+opt_125m_en 	125.24M 	12-layer OPT model where case in maintained. Trained on BookCorpus, CommonCrawl, Pile, and PushShift.io corpora.
+opt_1.3b_en 	1.32B 		24-layer OPT model where case in maintained. Trained on BookCorpus, CommonCrawl, Pile, and PushShift.io corpora.
+opt_2.7b_en 	2.70B 		32-layer OPT model where case in maintained. Trained on BookCorpus, CommonCrawl, Pile, and PushShift.io corpora.
+opt_6.7b_en 	6.70B 		32-layer OPT model where case in maintained. Trained on BookCorpus, CommonCrawl, Pile, and PushShift.io corpora.
+"""
+
+
+#GridSearchCV and Pipeline
+#Pipeline
+from sklearn.pipeline import Pipeline
+pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC())]) #Pipeline olusturmak icin.
+pipe.fit(X_train, y_train) #Pipeline egitmek icin.
+pipe.get_params() #Parametrelerin neler oldugunu gormek icin.
+pipe.score(X_test, y_test) #Score goremk icin.
+
+pipe = Pipeline([('std', StandardScaler()), ('Decision_tree', DecisionTreeClassifier())])
+#               [("Isimlendirme",    ne yapilmasi isendigini)]
+
+from sklearn.pipeline import make_pipeline
+pipe = make_pipeline(StandardScaler(), SVC()) #Pipeline make_pipeline ile isimlendirmeyi otomatik kendisi yapiyor.
+print(pipe) #Pipeline gormek icin.
+
+
+svm_params = {
+	"svc__kernel":["linear", "poly", "rbf", "sigmoid", "precomputed"],
+	"svc__degree" : [1,2,3,4,5,6,7,8,9,10,11],
+	"svc__gamma" : ["scale", "auto"],
+	"svc__C":[1,2,3,4,5]          
+}
+         
+#Parametrelerde model isminden sonra __ iki tane alt cizgi eklenmelidir.Model ismi kucuk harfle olmalidir.Yoksa hata veriyor
+
+gds = GridSearchCV(pipe_svm, svm_params, scoring= "accuracy", cv=10, n_jobs = -1)
+
+#https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html
+
 #Egitilmis Modelin Tekrar Kullanilmasi
 model.save("file_name")#Keras icin disayia kaydetme.Farkli kodlarda vardi sonra bak : https://www.youtube.com/watch?v=YCXFceVKHTk
 #Pickle == Tursu, joblib,Pmml kutuphaneleri mevcuttur.Pmml bir standar saglar diger dillere egitilmis veri aktarilabilir.
@@ -4508,4 +5212,356 @@ pickle.dump(model, open("file_name", "wb")) #dump ile onceden egitilmis modelimi
 #open ile dosyayi acip yazma islemi icin w, binary olarak kaydetmesi icin b degerlerini veriyoruz.
 ogrenilmis = pickle.load(open("file_name", "rb")) #load ile dosyaya kaydetmis oldugumuz egitilmis modeli yuklemek icin.
 ogrenilmis.predict(X_test) #Artik nasil islemler yapmak isterseniz ogrenilmis modeli kullanabilirsiniz.
+
+##GenAI or GenerativeAI
+#Google Gemini API
+pip3 install -q -U google-generativeai
+
+#The rate limit for Gemini-Pro models free version is 60 requests per minute (RPM).Rate Limits 60 QPM (queries per minute)
+
+
+
+import pathlib
+import textwrap
+
+import google.generativeai as genai
+
+# Used to securely store your API key
+from google.colab import userdata
+
+from IPython.display import display
+from IPython.display import Markdown
+
+#Text markdown donusturmek icin.Bu sayede daha guzel gozukmesi saglanabilir.
+def to_markdown(text):
+  text = text.replace('•', '  *')
+  return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+  
+
+prompt = input("Lutfen Prompt giriniz : ")
+
+response = model.generate_content(prompt)
+to_markdown(response.text)
+
+
+# Or use `os.getenv('GOOGLE_API_KEY')` to fetch an environment variable.
+GOOGLE_API_KEY=userdata.get('GOOGLE_API_KEY')
+
+genai.configure(api_key=GOOGLE_API_KEY)
+
+model = genai.GenerativeModel('gemini-pro') #GenAI model belirtmek icin.
+model = genai.GenerativeModel('gemini-pro-vision') #Gorsel islemler icin kullanilan model icin.
+
+'''
+Now you're ready to call the Gemini API. Use list_models to see the available Gemini models:
+
+    gemini-pro: optimized for text-only prompts.
+    gemini-pro-vision: optimized for text-and-images prompts.
+
+'''
+
+import pprint
+#Hangi modellerin oldugunu gormek icin.
+for model in genai.list_models(): 
+    pprint.pprint(model)
+
+
+import PIL.Image
+
+img = PIL.Image.open('image.jpg')
+
+response = model.generate_content(img)
+to_markdown(response.text)
+
+prompt = input("Lutfen prompt giriniz: ")
+response = model.generate_content([f"{prompt}", img], stream=True)
+response.resolve()
+to_markdown(response.text)
+
+#Ornek Freeform prompt
+import os
+from dotenv import dotenv_values
+import google.generativeai as genai
+
+api_key = dotenv_values(".env")["API_key"]
+
+genai.configure(api_key=api_key)
+
+# Set up the model
+generation_config = {
+  "temperature": 0.5,
+  "top_p": 0.75,
+  "top_k": 2,
+  "max_output_tokens": 2048,
+}
+
+"""
+Link : https://www.youtube.com/watch?v=-7nf5EJ2Fsc
+
+Link yukaridaki parametrelerin daha detayli bir anlatimi mevcut.Fakat kisaca bu degeler modelin ne kadar dogru veya yaratici olacagini belirler.
+Degerler degistirilerek daha yaratici ama daha az dogru olan veya daha az yaratici ama daha dogru veren bir model olusturulur.
+temperature : Korelasyon gibi dusunebiliriz.Yukseldikce yaraticilik artar.Ters korelasyon gibi calisir.
+K : degeri kac degere bakilacagini belirtmek icin.Deger arttikca kapsam artar fakat yanlis bilgileride dahil edebilir.
+p : Olasiliksal olarak belli bir esik degerini gecenlerin alinmasi saglanabilir.Yine cok yukselttikce bu deger kapsami genisler.
+
+Not: Yukaridaki degerler optimum degildir rastgele yazilmistir.En ideal icin arastirilmalidir!.
+"""
+
+safety_settings = [
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+]
+
+#Guvenlik ayarlari gosterilecek cevaplarin filtrelenmesi icin kullanilir.Bu sayede cevaplar kotu icerikler barindirmamasi saglanir.
+'''
+Safety settings
+
+-------------------------------- | -------------------
+Use Case 								Category
+-------------------------------- | -------------------
+Anti-Harassment Training App 	 |		Hate speech, Sexually explicit
+Screenplay Writer 				 |		Sexually explicit, Dangerous
+Toxicity classifier 			 |		Harassment, Dangerous 
+
+
+--------------- | -------------------
+Probability 		Description
+--------------- | -------------------
+NEGLIGIBLE 		|	Content has a negligible probability of being unsafe
+LOW 			|	Content has a low probability of being unsafe
+MEDIUM 			|	Content has a medium probability of being unsafe
+HIGH 			|	Content has a high probability of being unsafe 
+
+
+----------------------------- | ----------------------------------- | ---------------
+
+Threshold (Google AI Studio) 			Threshold (API) 				Description
+----------------------------- | ----------------------------------- | ---------------
+Block none 					  |	BLOCK_NONE 							|	Always show regardless of probability of unsafe content
+Block few 					  |	BLOCK_ONLY_HIGH 					|	Block when high probability of unsafe content
+Block some 					  |	BLOCK_MEDIUM_AND_ABOVE 				|	Block when medium or high probability of unsafe content
+Block most 					  |	BLOCK_LOW_AND_ABOVE 				|	Block when low, medium or high probability of unsafe content
+							  |	HARM_BLOCK_THRESHOLD_UNSPECIFIED 	|	Threshold is unspecified, block using default threshold 
+
+'''
+
+model = genai.GenerativeModel(model_name="gemini-pro",
+                              generation_config=generation_config,
+                              safety_settings=safety_settings)
+
+prompt = input("Lutfen Prompt giriniz : ")  #Girilmek istenen Prompt kullanicidan almak icin.
+
+response = model.generate_content(prompt)  #Girilen prompt gemini yanit vermesi icin.
+print(response.text) #Cevap metin olarak gormek icin.
+
+#Ornek2 Structured prompt
+"""
+At the command line, only need to run once to install the package via pip:
+
+$ pip install google-generativeai
+"""
+
+import google.generativeai as genai
+
+genai.configure(api_key="YOUR_API_KEY")
+
+# Set up the model
+generation_config = {
+  "temperature": 0.5,
+  "top_p": 1,
+  "top_k": 1,
+  "max_output_tokens": 2048,
+}
+
+safety_settings = [
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+]
+
+model = genai.GenerativeModel(model_name="gemini-pro",
+                              generation_config=generation_config,
+                              safety_settings=safety_settings)
+
+girdi = input("Lutfen Prompt giriniz : ")
+cikti = input("Lutfen Ciktinin nasil olmasi gerektigini giriniz : ")
+aciklama = input("Lutfen ek aciklama giriniz (opsiyonel): ")
+
+prompt_parts = [
+    f"{aciklama}", 
+    f"input: {girdi}",
+    f"output: {cikti}"
+]
+#Prompt parcaliyoruz. Input ve output olarak.Belli bir yapida cikti vermesini sagliyoruz.Ornegin cikti olarak bir olusturmasini isteyebiliyoruz.
+
+response = model.generate_content(prompt_parts)
+print(response.text)
+
+#Ornek3 Gemini Vision
+import os
+from dotenv import dotenv_values
+import google.generativeai as genai
+from pathlib import Path
+
+api_key = dotenv_values(".env")["API_key"]
+
+genai.configure(api_key=api_key)
+
+# Set up the model
+generation_config = {
+  "temperature": 0.4,
+  "top_p": 1,
+  "top_k": 32,
+  "max_output_tokens": 4096,
+}
+
+safety_settings = [
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+]
+
+model = genai.GenerativeModel(model_name="gemini-pro-vision",
+                              generation_config=generation_config,
+                              safety_settings=safety_settings)
+
+
+resim = input("Lutfen resim dosyalarinin ismini giriniz(Ornek resim.png): ")
+
+# Validate that an image is present
+if not (img := Path(f"{resim}")).exists():
+  raise FileNotFoundError(f"Could not find image: {img}")
+
+image_parts = [
+  {
+    "mime_type": f"image/{resim.split('.')[-1]}",
+    "data": Path(f"{resim}").read_bytes()
+  }
+]
+#Birden fazla resim eklenebilir. {}, ayirarak icerik ayni kalarak eklenebilir.
+
+prompt = input("Lutfen Prompt giriniz : ")
+
+prompt_parts = [
+  f"{prompt}",
+  image_parts[0]
+]
+#Birden fazla resim oldugunda liste elemanlarina erisim oldugu gibi virgulle eklenmelidir.Ornek image_parts[0], image_parts[1]
+
+
+response = model.generate_content(prompt_parts)
+print(response.text)
+
+##KEY Store and Manage
+import os
+
+env #Terminalden calistirildigan hali hazirda env olan degiskenler listelenir.
+
+export API_key=12345 #env aktarmak icin
+#Not: Bu yontem ile kullanildiginda terminal kapandiginda bilgi gidecektir.
+api_key = os.getenv("API_key")
+print(api_key)
+
+
+echo API_key=12345 > .env  #Terimalden dosyaya .env dosyasi olusturup key bu dosyadan alacagiz.Bu dosya .gitignore dosyasina mutlaka eklenmeli!!!.
+#Kod tekrardan calistirildiginda key guncellenecektir.Yeni satir olarak eklemiyecektir.Daha sonra da benzer sekilde cagirilabilir.
+
+
+pip3 install python-dotenv
+
+import os
+from dotenv import load_dotenv
+load_dotenv() #.env dosyasi dizinde mevcut ise env aktarmak icin.
+api_key = os.getenv("API_key")
+print(api_key)
+
+from dotenv import dotenv_values
+api_key = dotenv_values(".env")["API_key"] #OrderedDict tipinde aliyor dosyadakileri bu yuzden key vererek cagirilmasi gerekiyor.
+print(api_key)
+
+
+
+##Code analysis and Security Check
+#Pylint
+#Pylint is a static code analysis tool for the Python
+pip3 install pylint
+pylint dosya_adi #Calisilan dizinde kod analizi bu sekilde yapiliyor.
+#Calistirildiktan sonra kod satir satir duzeltilmesi gerekenleri belirtiyor.Ayrica kodun genel skoru 10 uzerinden puanlaniyor.
+#Daha once calistirilmis ise yapilan degisikliklerden sonra kac puan arttirildigini da gosteriyor.
+
+#Black
+#Black is the uncompromising Python code formatter. Code readable and code review faster olmasini saglar.
+#Kodun girintilerini ve bosluklarini duzenler.
+pip3 install black
+black file_name #Dosya ismini vererek calistirdigimizda otomatik olarak kod duzenlenmis olur.
+black * #Dizindeki tum dosyalarin duzenlenmesi icin kullanabilirsin.Tek komut ile dizindeki tum dosyalar duzenlenmis olur.
+#Ayni zamanda pylint skoruna ciddi etkisi oluyor ve cikan problemlerin cogunu otomatik olarak cozuyor.
+
+#Bandit
+#Bandit is a tool designed to find common security issues in Python code.
+pip3 install bandit
+bandit file_name #Bandit dosya ismi ile calistirilip bizlere guvenlik raporu sunar.
+#Test sonucunu, ne kadar kod satiri tarandigini veya atlandigni, [Undefined, Low, Medium, High] duzeylerinde guvenlik aciklarini riskine gore ayirir.
+
+#Guvenlik aciklarinin seviyesine gore sonuclarin ozel olarak gosterilmesi icin parametre eklenmelidir. 
+bandit file_name -lll #-l : Low icin, -ll : Medium icin, -lll High icin kullanilir.
+
+#Safety
+pip3 install safety
+#Safety checks Python dependencies for known security vulnerabilities and suggests the proper remediations for vulnerabilities detected.
+#Safety can be run on developer machines, in CI/CD pipelines and on production systems.Docker icinde kullanilabiliyor.
+#By default it uses the open Python vulnerability database Safety DB, which is licensed for non-commercial use only.
+#Safety is using PyUp's free open-source vulnerability database.
+#Paketlerin guncel olmayan surumlerinden veya acigi kapatilmamis surumlerini kontrol ederek guncelleme yapilmasi gereken paketleri de gosterir.
+#Guvenlik aciginin hangi surumleri kapsadigini ve cozum icin oneriler sunar.
+
+safety check #Paketlerin guvenlik kontrolu icin.
+safety check -r requirements.txt #Kurulum yapmadan requirements.txt dosyasindaki guvenlik riski olusturacak kutuphaneleri tarayabilirsin.
+safety check --full-report #Detayli rapor goruntulemek icin.
+safety check --output text > insecure_report.txt #Raporu dosyaya kaydetmek icin.
+safety check --output json > insecure_report.json #json formatinda kaydetmek icin.
+safety review -f insecure_report.json #json foramatinda kaydedilen dosyayi tekrar gormek icin.
+safety review -r insecure_report.json --full-report #full report olarak kaydedilmis ise ek parametre olarak belirtilmelidir.
+safety check -i 1234 #ID girilen bu ornekte 1234 degeri bir veya daha fazla olsa bile dahil etmemk icin.
+
 
