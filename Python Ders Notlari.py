@@ -18,14 +18,15 @@ https://docs.python.org/3/tutorial/index.html #Python kendi tutorial'dir.Yine gu
 ''' Buda cok satirli yorum icin kullaniliyor.''' #Multi line comment'tir yukaridaki ile benzer sekilde belirtilen alan icerisi yorumdur.Alanin disindaki kodlarlar calistirilir.Alanin icindekiler atlanir.
 #Bu tek satir yorumdu (single line comment) #Satir bittiginde yine sonraki satirdaki kod calisir.Fakat satir bitene kadar yorumdur bu yorumlar calisirken atlanir.Hata ayiklama icin kullanabilirsin.
 ## #Bu  sekilde de gordum fakat farklarını bilmiyorum.
-python -m pydoc #cmd calistirdiginda metadocumentation calistirir.
-python -m pydoc math #Kutuphane veya methodlarin  ismini direkt yazabilirsin.
-python -m pydoc -k ssl # -k keyword arastirmasi yapmak icin ekleniyor bu sayede konu ile alakali method ve kutuphaneler gosteriyor.
-python -m pydoc setuptools.ssl_support #Fakat ayrinti bakmak icin -k yazmadan  yaziyoruz.
-python -m pydoc -p 1000 #-p port kisaltmasi istenilen portta daha sonra b enter ladigimizda browserdan lazilan portta dokumantasyon aciliyor.
-python -m pydoc -b #Yukarida port girmistik burada portu kendi ayarliyor browserda dokumantasyon aciyor. !!!! Fakat her ikisindede q enter layip islemleri bitirmen lazim server acık kalir. !!!!
-python -m pydoc -w json #-w write islemi icin ilgili dosyada bir html dokumantasyon olusturuyor bu ornekte json alakali bir dokumantasyon yazilacak.
-pyhton dosyaadi.py  #cmd de PYTHON codelari calistirliyor.
+#Not : >>> terminalde command line calistirilacagini belirtmek icin eklenmistir. Calistirilacak kod okun saginda yer almaktadir.Tamaminda belirtilmemistir dikkat.
+
+>>> python -m pydoc #cmd calistirdiginda metadocumentation calistirir.
+>>> python -m pydoc math #Kutuphane veya methodlarin  ismini direkt yazabilirsin.
+>>> python -m pydoc -k ssl # -k keyword arastirmasi yapmak icin ekleniyor bu sayede konu ile alakali method ve kutuphaneler gosteriyor.
+>>> python -m pydoc setuptools.ssl_support #Fakat ayrinti bakmak icin -k yazmadan  yaziyoruz.
+>>> python -m pydoc -p 1000 #-p port kisaltmasi istenilen portta daha sonra b enter ladigimizda browserdan lazilan portta dokumantasyon aciliyor.
+>>> python -m pydoc -b #Yukarida port girmistik burada portu kendi ayarliyor browserda dokumantasyon aciyor. !!!! Fakat her ikisindede q enter layip islemleri bitirmen lazim server acık kalir. !!!!
+>>> python -m pydoc -w json #-w write islemi icin ilgili dosyada bir html dokumantasyon olusturuyor bu ornekte json alakali bir dokumantasyon yazilacak.
 #Kutuphane ve modulleri arastirmak icin dir() ve help() fonksiyonlarini kullanabilirsin.Fakat bazi kutuphaneleri veya methodlari sorgulamadan once importlamaniz gerekir. 
 import math #math kutuphanesi kullanmak icin import etmemiz gerekiyor.
 help(math) #Bu sorguyla yine math kutuphanesi hakkinda bilgi edinebiliriz.
@@ -37,30 +38,38 @@ help(log2)
 #Sunu yapabilirsiniz shell yazildiginda calisiyorsa print() islemini unutmussunuz demektir. !!!  Bazi kodlarda  print yazmamis olabilirim siz eger bu durumu yasarsaniz print() ekleyin. !!!
 
 sudo apt install python3 python3-pip build-essential python3-dev #Pythonla alakli ne varsa tek satirda indirmek icin diebiliriz.
-python -V #Hangi versiyonun kurulu oldugunu gormek icin
-python --version #Bu komut ile yine versioynunu gorebilirsiniz.
-python3 -V yada python3 --version #Eger v2 varsa v3 sorgusu icin python3 olarak yazmamaiz gerekir.
-python3 -m pip install --upgrade pip #pip version update icin.
-pip install --upgrade pip
-pip install -r requirements.txt --upgrade
-pip list --outdated #Guncel olmayan paketleri gormek icin.
-pip install --upgrade paket_name #Guncel olmayan paketleri tek tek guncelleyebilirsin.Problem yaratan paketleri bulmak icin kullanilabilir.
+>>> python -V #Hangi versiyonun kurulu oldugunu gormek icin
+>>> python --version #Bu komut ile yine versioynunu gorebilirsiniz.
+>>> python3 -V yada python3 --version #Eger v2 varsa v3 sorgusu icin python3 olarak yazmamaiz gerekir.
+>>> python3 -m pip install --upgrade pip #pip version update icin.
+>>> pip install --upgrade pip
+>>> pip install -r requirements.txt --upgrade
+>>> pip list --outdated #Guncel olmayan paketleri gormek icin.
+>>> pip install --upgrade paket_name #Guncel olmayan paketleri tek tek guncelleyebilirsin.Problem yaratan paketleri bulmak icin kullanilabilir.
 #Hata veren paketler requirements.txt cikartilarak otomatik guncellemenin devam etmesi saglanabilir.
 sudo apt install idle #Teminalde calistirdigimizda Linux sistemlerede  idle kurmak icin (Best IDE ever)
-idle #IDLE calistirmak icin
-idle x.py #Direkt olarak dosya ile acmak icin
-python #Console sadece python yazarsak python shell calisiyor ve dosyadan degil direkt olarak yine python kodlari yazip calistirabiliriz.
-python3 #Python 2 de kurulu ise pyhton yazdigimizda v2 acacaktir.Bu sekilde  python v3 un shellini acariz.
+>>> idle #IDLE calistirmak icin
+>>> idle x.py #Direkt olarak dosya ile acmak icin
+>>> python #Console sadece python yazarsak python shell calisiyor ve dosyadan degil direkt olarak yine python kodlari yazip calistirabiliriz.
+>>> python3 #Python 2 de kurulu ise pyhton yazdigimizda v2 acacaktir.Bu sekilde  python v3 un shellini acariz.
 exit() #Python Shell cikmak icin kullanilir.
-python calistir.py #Tek bir surum varsa v3 de olsa calistirinca hata veriyor bu sekilde calistiriniz.
-python3 calistir.py #Console ile calistrimak icin python yazarsak python v2 calistiriliyor. v3 icin python3 kullaniyoruz.
-pip install modul_adi #Modul adi yerine kurmak istediginiz paketlerin isimini yaziyoruz.
-pip3 uninstall modul_adi #Kaldirma islemi icin.
-pip install --user modul_adi #Dizin olarak farkli kurulum yapildiysa kaldiriken kullanilabilir.
-pip3 list #Kurulu olan paketleri listeler
-pip install -r req.txt #Kendi olusturmus oldugumuz txt dosyasindaki modullerin tamamini tek satirda indirmek icin.
+>>> python calistir.py #Tek bir surum varsa v3 de olsa calistirinca hata veriyor bu sekilde calistiriniz.
+>>> python3 calistir.py #Console ile calistrimak icin python yazarsak python v2 calistiriliyor. v3 icin python3 kullaniyoruz.
+>>> pip install modul_adi #Modul adi yerine kurmak istediginiz paketlerin isimini yaziyoruz.
+>>> pip3 uninstall modul_adi #Kaldirma islemi icin.
+>>> pip install --user modul_adi #Dizin olarak farkli kurulum yapildiysa kaldiriken kullanilabilir.
+>>> pip3 list #Kurulu olan paketleri listeler
+>>> pip install -r req.txt #Kendi olusturmus oldugumuz txt dosyasindaki modullerin tamamini tek satirda indirmek icin.
 #txt dosyasinda sadece modul isimlerinin olmasi yetiyor.
-which python3 #Terminale bu komutu girdigimizde python hangi klasor altinda calistirildigi yani dosya yolunu gorebilirsin.
+>>> which python3 #Terminale bu komutu girdigimizde python hangi klasor altinda calistirildigi yani dosya yolunu gorebilirsin.
+>>> pip show pandas #Python paketi ile bilgiler gostermek icin kullanilir. Ayni zamanda hangi dosya konumunda kayitli oldugunuda verir.
+>>> pip check #Python paketlerinin kontrolu gerceklestirmek icin kullanilir.
+#Eger hatali paket silinmiyor ve guncellenemiyor ise dosya konumuna gidip ilgili dosya elle silinir.
+
+#Automated Python 2 to 3 code translation. Version 2 to 3
+>>> 2to3 file_name.py #lib2to3 kutuphanesi artik calismiyor.Fakat ileriki surumlerde kod guncellemenin benzer sekilde olacagini dunusuyorum.
+
+
 
 #Hello World
 print("Hello World") #Ekrana yazdirma islemi yapmak icin adettendir ilk yazilan kod Hello Worlddur.
@@ -958,6 +967,8 @@ except ZeroDivisionError : # Birden fazla hata yazilabilir yazim (eror,eror,...)
     print("Hata sayiyi  0 bolemezsiniz.")
     print("Zoraki calisan kod")
 
+#Hatalarin listesi : https://docs.python.org/3/library/exceptions.html
+
 try: 
     a=5/0
 except ZeroDivisionError as hata : 
@@ -1331,6 +1342,7 @@ for i in os.walk("C:/Users/Salih/Desktop"): #dizindeki tum dosyalari konumlariyl
     print(i)
 for i,j,k in os.walk("C:/Users/Salih/Desktop"): #i = Dosya Konumu , j = Klasor Ismi , k = Dosya Ismi
 
+os.system("safety check --output text > report.txt") #Terminalde calistiracagim komutlari .system ile calistirabiliriz.
 
 #SYS
 #Terminalde calisma yapmak icin
@@ -2818,14 +2830,57 @@ http://localhost:8000/ #Localhost aciyorsun. Daha sonra ilgili html dosyaya tikl
   fig
 </py-script>
 
+
+#web2py
+git clone --recursive https://github.com/web2py/web2py.git
+"""
+If you have an existing repository, the commands below need to be executed at least once:
+
+git submodule update --init --recursive 
+"""
+import pickle
+#skitlearn import edince hata veriyor.
+#def index tanimli kodlarini degistirilmesi gerkiyor.
+def index(): 
+    if len(request.vars)>0:
+        degerler = list()
+        
+        for i in range(1,len(request.vars)+1):
+            degerler.append(int(request.vars[f"q{i}"]))
+            
+        ogrenilmis = pickle.load(open("xgboost_fitted", "rb"))
+        tahmin = ogrenilmis.predict([degerler])
+        
+        if tahmin == 0 :
+            out_message = "Akciger Kanseri DEGILSINIZ."
+            
+        elif tahmin == 1:
+            out_message = "Gecmis olsun. Malesef Akciger Kanseri oldgunuz tespit edildi."
+
+    else:
+        out_message = "Henuz sonuc istenmedi."
+
+    return dict(message=out_message)
+    
+#request.vars formdaki degerleri value olarak sirasi ile aliyor.
+#Tum degerler dict olarak tutuluyor htmldeki name olarak verilen tanima gore alinip islem yapilabiliyor.
+#Gosterilecek mesajinda dict olarak verilmesi gerekiyor yoksa hata veriyor.
+#Egitilmis model web2py.py calistirildigi dizine kopyalanmali yoksa hata verir.
+#Server baslatirken girilen sifre admin sifresi olarak yonetici panelinde yazilir.Yeni proje olusturulup ilgili dosyalarda kodlar duznlenir.
+
+#web2py calistirmak icin.
+python web2py.py
+
+
+
 #Streamlit
 pip3 install streamlit
-streamlit run file.py #Python dosyasini calistirmak icin.
-streamlit run https://raw.githubusercontent.com/... #Github gists'ten de
-streamlit cache clear #Cache temizlemek icin Ctr+C sonra terminale yaz.
-streamlit config show #Config ayarlarina bakmak icin.
-streamlit docs #Dokuman gormek icin kendi sitesindeki sayfayi aciyor browserdan.
-streamlit version #Versiyonu gormek icin.
+>>> streamlit run file.py #Python dosyasini calistirmak icin.
+>>> streamlit run https://raw.githubusercontent.com/... #Github gists'ten de
+>>> streamlit cache clear #Cache temizlemek icin Ctr+C sonra terminale yaz.
+>>> streamlit config show #Config ayarlarina bakmak icin.
+>>> streamlit docs #Dokuman gormek icin kendi sitesindeki sayfayi aciyor browserdan.
+>>> streamlit version #Versiyonu gormek icin.
 
 nano ~/.streamlit/config.toml
 [browser]
@@ -4620,6 +4675,17 @@ plt.show() #Dendogram gormek icin.
 #UCB (Upper Confidence Bound) == Ust Guven Siniri
 
 #XGBoost
+pip3 install xgboost
+
+import xgboost as xgb
+clf = xgb.XGBClassifier(tree_method="hist", early_stopping_rounds=2)
+
+early_stop = xgb.callback.EarlyStopping(
+    rounds=2, metric_name='logloss', data_name='Validation_0', save_best=True
+)
+clf = xgb.XGBClassifier(tree_method="hist", callbacks=[early_stop])
+clf.fit(X_train, y_train, eval_set=[(X_test, y_test)])
+
 from xgboost import XGBClassifier
 xbst = XGBClassifier(n_estimators=2, max_depth=2, learning_rate=1, objective='binary:logistic')
 xbst.fit(X_train, y_train)
@@ -4717,21 +4783,24 @@ print(grid_search.best_index_)
 
 """
 The scoring parameters:
+----------------------------------------------------------------------------------
+Scoring				Function								Comment
+__________________________________________________________________________________
 "accuracy"          metrics.accuracy_score
 "balanced_accuracy" metrics.balanced_accuracy_score
 "top_k_accuracy"    metrics.top_k_accuracy_score
 "average_precision" metrics.average_precision_score
 "neg_brier_score"   metrics.brier_score_loss
-"f1"                metrics.f1_score
-"f1_micro"              ||
-"f1_macro"              ||
-"f1_weighted"           ||
-"f1_samples"        metrics.f1_score
-"neg_log_loss"      metrics.log_loss
-"precision"         metrics.precision_score
-"recall"            metrics.recall_score
-"jaccard"           metrics.jaccard_score
-"roc_auc"           metrics.roc_auc_score
+"f1"                metrics.f1_score					 	for binary targets
+"f1_micro"              ||									micro-averaged
+"f1_macro"              ||									macro-averaged									
+"f1_weighted"           ||									weighted average
+"f1_samples"        metrics.f1_score						by multilabel sample
+"neg_log_loss"      metrics.log_loss						requires predict_proba support
+"precision"         metrics.precision_score					suffixes apply as with ‘f1’
+"recall"            metrics.recall_score								||
+"jaccard"           metrics.jaccard_score								||
+"roc_auc"           metrics.roc_auc_score								||
 "roc_auc_ovr"       metrics.roc_auc_score
 "roc_auc_ovo"       metrics.roc_auc_score
 "roc_auc_ovr_weighted"    metrics.roc_auc_score
@@ -4768,7 +4837,13 @@ Regression
 	
 
 
-
+#Recall (also known as Sensitivity) gercek hastalarin % kaci dogru bulundugunu bize gosterir.
+#Specificity ise gercek sagliklilarin % kacini dogru buldugunu bize gosterir.
+#AUC ve ROC egrilerinde sol taraf Sensitivity, yukari Specificity degerlerini belirtir.Hastayi bulmasini istersek sola yakin olmasini isteriz.
+"""
+    Sensitivity (true positive rate) is the probability of a positive test result, conditioned on the individual truly being positive.
+    Specificity (true negative rate) is the probability of a negative test result, conditioned on the individual truly being negative.
+"""
 
 
 sklearn.metrics.get_scorer_names() #scoring parametresi icin gecerli olan metrics adlari listesi
@@ -4861,6 +4936,7 @@ sklearn.metrics.get_scorer_names() #scoring parametresi icin gecerli olan metric
 #Evrisim isleminden ayiran ozelligi squashing function == ezme aktivasyon fonksiyonudur.
 #Capsule Network girdi ve cikti vector'dur.Vectorel hesaplama yapilir.Standart NN'lerde cikislar skalerken Capsule'de vectoreldir
 #Generative Adversarial Network (GAN) ==  Uretici Cekismeli Aglar 
+
 
 model.coef_ #Katsayilari gormek icin
 model.intercept_ #Sabiti gormek icin
@@ -5022,6 +5098,83 @@ Nadam
 Ftrl
 
 Source : https://keras.io/api/optimizers/
+"""
+
+"""
+Keras Metrics
+
+Available metrics
+Base Metric class
+
+    Metric class
+
+Accuracy metrics
+
+    Accuracy class
+    BinaryAccuracy class
+    CategoricalAccuracy class
+    SparseCategoricalAccuracy class
+    TopKCategoricalAccuracy class
+    SparseTopKCategoricalAccuracy class
+
+Probabilistic metrics
+
+    BinaryCrossentropy class
+    CategoricalCrossentropy class
+    SparseCategoricalCrossentropy class
+    KLDivergence class
+    Poisson class
+
+Regression metrics
+
+    MeanSquaredError class
+    RootMeanSquaredError class
+    MeanAbsoluteError class
+    MeanAbsolutePercentageError class
+    MeanSquaredLogarithmicError class
+    CosineSimilarity class
+    LogCoshError class
+    R2Score class
+
+Classification metrics based on True/False positives & negatives
+
+    AUC class
+    Precision class
+    Recall class
+    TruePositives class
+    TrueNegatives class
+    FalsePositives class
+    FalseNegatives class
+    PrecisionAtRecall class
+    RecallAtPrecision class
+    SensitivityAtSpecificity class
+    SpecificityAtSensitivity class
+    F1Score class
+    FBetaScore class
+
+Image segmentation metrics
+
+    IoU class
+    BinaryIoU class
+    OneHotIoU class
+    OneHotMeanIoU class
+    MeanIoU class
+
+Hinge metrics for "maximum-margin" classification
+
+    Hinge class
+    SquaredHinge class
+    CategoricalHinge class
+
+Metric wrappers and reduction metrics
+
+    MeanMetricWrapper class
+    Mean class
+    Sum class
+
+
+Source : https://keras.io/api/metrics/
+
 """
 
 #Convolution Neural Network (CNN) == Evrisimsel Sinir Aglari
@@ -5218,6 +5371,101 @@ ogrenilmis.predict(X_test) #Artik nasil islemler yapmak isterseniz ogrenilmis mo
 pip3 install -q -U google-generativeai
 
 #The rate limit for Gemini-Pro models free version is 60 requests per minute (RPM).Rate Limits 60 QPM (queries per minute)
+
+"""
+Incremental learning
+#Buyuk veriler icin kullanilabilecek bir yontemdir.
+
+Here is a list of incremental estimators for different tasks:
+
+    Classification
+            sklearn.naive_bayes.MultinomialNB
+            sklearn.naive_bayes.BernoulliNB
+            sklearn.linear_model.Perceptron
+            sklearn.linear_model.SGDClassifier
+            sklearn.linear_model.PassiveAggressiveClassifier
+            sklearn.neural_network.MLPClassifier
+
+    Regression
+            sklearn.linear_model.SGDRegressor
+            sklearn.linear_model.PassiveAggressiveRegressor
+            sklearn.neural_network.MLPRegressor
+
+    Clustering
+            sklearn.cluster.MiniBatchKMeans
+            sklearn.cluster.Birch
+
+    Decomposition / feature Extraction
+            sklearn.decomposition.MiniBatchDictionaryLearning
+            sklearn.decomposition.IncrementalPCA
+            sklearn.decomposition.LatentDirichletAllocation
+            sklearn.decomposition.MiniBatchNMF
+
+    Preprocessing
+            sklearn.preprocessing.StandardScaler
+            sklearn.preprocessing.MinMaxScaler
+            sklearn.preprocessing.MaxAbsScaler
+
+
+Source : https://scikit-learn.org/stable/computing/scaling_strategies.html
+
+"""
+
+
+
+
+##Apache Spark
+#PySpark
+pip3 install pyspark
+import pyspark.pandas as ps
+
+#Not: pyspark.pandas pandas komutlari ile calistirilabiliyor genel olarak ayni isimlendirmelere sahipler.
+s = ps.Series([1, 3, 5, np.nan, 6, 8])
+psdf = ps.DataFrame(df) #Veriyi dict olarak belirterek olusturulabiliyor.
+data = ps.read_csv("data.csv") #CSV dosyasini okumak icin.
+psdf.to_csv('data_saved.csv') #CSV dosyasini yazdirmak icin.
+psdf.to_parquet('p.parquet')
+ps.read_parquet('p.parquet')
+
+"""
+Problem Type					Supported Methods
+--------------------------------------------------------
+Binary Classification			linear SVMs, logistic regression, decision trees, random forests, gradient-boosted trees, naive Bayes
+________________________________________________________________________________________________________________________________________________
+Multiclass Classification		logistic regression, decision trees, random forests, naive Bayes
+________________________________________________________________________________________________________________________________________________
+Regression						linear least squares, Lasso, ridge regression, decision trees, random forests, gradient-boosted trees, isotonic regression
+________________________________________________________________________________________________________________________________________________
+
+#Bu algoritmalar bazilaridir.Ayni zamanda clustering algoritmalari da mevcuttur.
+
+"""
+from pyspark.ml.classification import LogisticRegression
+lr = LogisticRegression(maxIter=10, regParam=0.3, elasticNetParam=0.8)
+lrModel = lr.fit(training)
+mlr = LogisticRegression(maxIter=10, regParam=0.3, elasticNetParam=0.8, family="multinomial")
+mlrModel = mlr.fit(training)
+print("Coefficients: " + str(lrModel.coefficients))
+print("Intercept: " + str(lrModel.intercept))
+
+from pyspark.ml.classification import DecisionTreeClassifier
+from pyspark.ml.classification import RandomForestClassifier
+om pyspark.ml.classification import GBTClassifier
+
+from pyspark.ml.classification import LinearSVC
+lsvc = LinearSVC(maxIter=10, regParam=0.1)
+lsvcModel = lsvc.fit(training)
+
+
+from pyspark.ml import Pipeline
+pipeline = Pipeline(stages=[labelIndexer, featureIndexer, rf, labelConverter])
+model = pipeline.fit(trainingData)
+
+
+# Save and load model
+from pyspark.mllib.classification import SVMModel
+model.save(sc, "target/tmp/pythonSVMWithSGDModel")
+sameModel = SVMModel.load(sc, "target/tmp/pythonSVMWithSGDModel") #Modelin modul isimi ile tekrar yukleniyor.
 
 
 
@@ -5424,6 +5672,7 @@ prompt_parts = [
 response = model.generate_content(prompt_parts)
 print(response.text)
 
+
 #Ornek3 Gemini Vision
 import os
 from dotenv import dotenv_values
@@ -5492,6 +5741,208 @@ prompt_parts = [
 response = model.generate_content(prompt_parts)
 print(response.text)
 
+
+#LLAMA
+"""
+Model 				Parameters 	Size 	Download
+-----------------------------------------------------------------------
+Llama 3.1 			8B 			4.7GB 	ollama run llama3.1
+Llama 3.1 			70B 		40GB 	ollama run llama3.1:70b
+Llama 3.1 			405B 		231GB 	ollama run llama3.1:405b
+Phi 3 Mini 			3.8B 		2.3GB 	ollama run phi3
+Phi 3 Medium 		14B 		7.9GB 	ollama run phi3:medium
+Gemma 2 			2B 			1.6GB 	ollama run gemma2:2b
+Gemma 2 			9B 			5.5GB 	ollama run gemma2
+Gemma 2 			27B 		16GB 	ollama run gemma2:27b
+Mistral 			7B 			4.1GB 	ollama run mistral
+Moondream 2 		1.4B 		829MB 	ollama run moondream
+Neural Chat 		7B 			4.1GB 	ollama run neural-chat
+Starling 			7B 			4.1GB 	ollama run starling-lm
+Code Llama 			7B 			3.8GB 	ollama run codellama
+Llama 2 Uncensored 	7B 			3.8GB 	ollama run llama2-uncensored
+LLaVA 				7B 			4.5GB 	ollama run llava
+Solar 				10.7B 		6.1GB 	ollama run solar
+
+
+llava ornegin gorseller icin egitilmis bir modeldir.
+
+Modellerin detayi icin : https://ollama.com/library
+"""
+
+ollama run llama3.1 #Modeli calistirmak icin.Model ilk defa calistiriliyor ise modeli indirir.
+ollama pull llama3.1 #Guncelleme icin.
+ollama rm llama3.1 #Modeli silmek icin.
+ollama cp llama3.1 my-model #Modeli kopyalamak icin.
+ollama show llama3.1 #Model bilgileri icin.
+ollama list #Kurulu olan modelleri gormek icin.
+
+#Uninstall ollama
+#Remove the ollama service:
+sudo systemctl stop ollama
+sudo systemctl disable ollama
+sudo rm /etc/systemd/system/ollama.service
+#Remove the ollama binary from your bin directory (either /usr/local/bin, /usr/bin, or /bin):
+sudo rm $(which ollama)
+#Remove the downloaded models and Ollama service user and group:
+sudo rm -r /usr/share/ollama
+sudo userdel ollama
+sudo groupdel ollama
+
+ollama run llava "What's in this image? /Users/jmorgan/Desktop/smile.png"
+ollama run llama3.1 "Summarize this file: $(cat README.md)"
+#Modelleri dosyalar icin kullanirkan yukaridaki yapilara benzer calistirilmalidir.
+
+./ollama serve
+./ollama run llama3.1
+#Serverda calistirmak icin.
+
+pip install ollama
+import ollama
+response = ollama.chat(model='llama3.1', messages=[
+  {
+    'role': 'user',
+    'content': 'Why is the sky blue?',
+  },
+])
+print(response['message']['content'])
+
+#Streaming responses
+stream = ollama.chat(
+    model='llama3.1',
+    messages=[{'role': 'user', 'content': 'Why is the sky blue?'}],
+    stream=True,
+)
+
+for chunk in stream:
+  print(chunk['message']['content'], end='', flush=True)
+  
+
+
+ollama.chat(model='llama3.1', messages=[{'role': 'user', 'content': 'Why is the sky blue?'}])
+ollama.generate(model='llama3.1', prompt='Why is the sky blue?')
+ollama.list()
+ollama.show('llama3.1')
+ollama.copy('llama3.1', 'user/llama3.1')
+ollama.delete('llama3.1')
+ollama.pull('llama3.1')
+ollama.push('user/llama3.1')
+ollama.embeddings(model='llama3.1', prompt='The sky is blue because of rayleigh scattering')
+ollama.ps()
+
+
+modelfile='''
+FROM llama3.1
+SYSTEM You are mario from super mario bros.
+'''
+
+ollama.create(model='example', modelfile=modelfile)
+
+#Custom client
+from ollama import Client
+client = Client(host='http://localhost:11434')
+response = client.chat(model='llama3.1', messages=[
+  {
+    'role': 'user',
+    'content': 'Why is the sky blue?',
+  },
+])
+
+#Async client
+import asyncio
+from ollama import AsyncClient
+
+async def chat():
+  message = {'role': 'user', 'content': 'Why is the sky blue?'}
+  response = await AsyncClient().chat(model='llama3.1', messages=[message])
+
+asyncio.run(chat())
+
+import asyncio
+from ollama import AsyncClient
+
+async def chat():
+  message = {'role': 'user', 'content': 'Why is the sky blue?'}
+  async for part in await AsyncClient().chat(model='llama3.1', messages=[message], stream=True):
+    print(part['message']['content'], end='', flush=True)
+
+asyncio.run(chat())
+
+#Hata ayiklayarak calistirmak icin bir ornek
+model = 'does-not-yet-exist'
+
+try:
+  ollama.chat(model)
+except ollama.ResponseError as e:
+  print('Error:', e.error)
+  if e.status_code == 404:
+    ollama.pull(model)
+
+#Daha fazla detay ve orneklere icin : https://github.com/ollama/ollama-python
+
+#Pydantic
+#Pydantic veri girislerinde kontrolu saglamak icin kullanilabilen bir yontemdir.
+from pydantic import BaseModel
+
+class Address(BaseModel):
+    country: str
+    city: str
+
+class UserProfile(BaseModel): #Class olarak tanimlanir.
+    name: str
+    age: int = 35 #Default deger verilebilir.
+    age: Optional[int] = None #Yas degeri opsiyonel olmasi icin Nonne degeri atanabilir.
+    email: str
+    situation = bool = True #Farkli tiptekilerede default deger atamak mumkundur.
+    address: Address #Adress bilgisi diger class miras olarak alinabilir.
+    
+    #Kontrol saglanabilir gerelerin belli kosullar altinda olmsi saglanabilir.
+    @field_validator('age') 
+    def check_age(cls, value):
+        if value < 18:
+            raise ValueError('Age must be at 18+')
+        return value
+
+address = Address(country="Turkiye", city="Istanbul")
+user = UserProfile(name="Rekha", age= 40, email="red@gmail.com", address=address)
+print(user)
+
+
+#json girdilerini yine parse edip islemler gerceklestirilebilir.
+import json
+data = '{"name": "Rekha", "age": 40, "email": "red@gmail.com"}'
+user = UserProfile.parse_raw(data)
+
+user = UserProfile(name="Shrinivas", age=22, email="sh@gmail.com")
+data = user.json()
+
+
+
+#FastAPI
+#touch __init__.py;touch main.py;
+#init python paketi old. belirtmek icin olusturuyoruz. main dosyasi ana kodlarin old. dosya
+#url sonuna /docs veya redoc ile api doc sayfasina ulasip islemlerin kontrolu saglanabilir.
+#docs sayfalarinda denemeler yapilabilir farkli parametreler ile post test edilip get sonuc gorulebilir.
+#fastapi dev main.py #Terminalde calistirarak api calistirmak icin.
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/") #GET istegi icin url path veya dosya path girilmeldir.
+async def root(): #async eklenmeden fonksiyon tanimlanabilir.
+    return {"message": "Hello World"} #Dondurulen sonuc json formatinda dondurulebilir.
+
+@app.post("/adres/") #POST istegi icin 
+async def sub_adres(adresler : Address):
+    return adresler
+    
+#Isteklerin kodlarinin neler old. bkz : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+
+#Tornado
+#Tornado is a scalable, non-blocking web server and web application framework.
+
+
 ##KEY Store and Manage
 import os
 
@@ -5520,12 +5971,29 @@ api_key = dotenv_values(".env")["API_key"] #OrderedDict tipinde aliyor dosyadaki
 print(api_key)
 
 
+#PyInstaller
+pip3 install pyinstaller
+
+>>> python -m PyInstaller --clean --onefile --noconsole --disable-windowed-traceback --icon=icon.ico dosya.py
+#Yukaridaki komut ile tek calistirilabilir .exe dosyalari elde edilebilir. Icon eklenecekse uzantisi .ico olmalidir.
+
+#Nuitka
+python -m pip install nuitka
+
+>>> python -m nuitka --onefile --windows-icon-from-ico=your-icon.png program.py
+>>> python -m nuitka --onefile --windows-icon-from-ico=your-icon.ico program.py
+>>> python -m nuitka --onefile --windows-icon-template-exe=your-icon.ico program.py
+#Icon eklenmesinde hata almistim.Yinede yukaridaki komutlar ile calistirilabilir.
+
+>>> python -m nuitka --standalone --onefile --remove-output --windows-console-mode=disable dosya.py --enable-plugin=tk-inter
+#Tkinter kullanildi ise bunu ek parametre olarak yukaridaki ornekte oldugu gibi eklenmelidir.
 
 ##Code analysis and Security Check
 #Pylint
 #Pylint is a static code analysis tool for the Python
 pip3 install pylint
-pylint dosya_adi #Calisilan dizinde kod analizi bu sekilde yapiliyor.
+
+>>> pylint dosya_adi #Calisilan dizinde kod analizi bu sekilde yapiliyor.
 #Calistirildiktan sonra kod satir satir duzeltilmesi gerekenleri belirtiyor.Ayrica kodun genel skoru 10 uzerinden puanlaniyor.
 #Daha once calistirilmis ise yapilan degisikliklerden sonra kac puan arttirildigini da gosteriyor.
 
@@ -5533,14 +6001,14 @@ pylint dosya_adi #Calisilan dizinde kod analizi bu sekilde yapiliyor.
 #Black is the uncompromising Python code formatter. Code readable and code review faster olmasini saglar.
 #Kodun girintilerini ve bosluklarini duzenler.
 pip3 install black
-black file_name #Dosya ismini vererek calistirdigimizda otomatik olarak kod duzenlenmis olur.
-black * #Dizindeki tum dosyalarin duzenlenmesi icin kullanabilirsin.Tek komut ile dizindeki tum dosyalar duzenlenmis olur.
+>>> black file_name #Dosya ismini vererek calistirdigimizda otomatik olarak kod duzenlenmis olur.
+>>> black * #Dizindeki tum dosyalarin duzenlenmesi icin kullanabilirsin.Tek komut ile dizindeki tum dosyalar duzenlenmis olur.
 #Ayni zamanda pylint skoruna ciddi etkisi oluyor ve cikan problemlerin cogunu otomatik olarak cozuyor.
 
 #Bandit
 #Bandit is a tool designed to find common security issues in Python code.
 pip3 install bandit
-bandit file_name #Bandit dosya ismi ile calistirilip bizlere guvenlik raporu sunar.
+>>> bandit file_name #Bandit dosya ismi ile calistirilip bizlere guvenlik raporu sunar.
 #Test sonucunu, ne kadar kod satiri tarandigini veya atlandigni, [Undefined, Low, Medium, High] duzeylerinde guvenlik aciklarini riskine gore ayirir.
 
 #Guvenlik aciklarinin seviyesine gore sonuclarin ozel olarak gosterilmesi icin parametre eklenmelidir. 
@@ -5555,13 +6023,12 @@ pip3 install safety
 #Paketlerin guncel olmayan surumlerinden veya acigi kapatilmamis surumlerini kontrol ederek guncelleme yapilmasi gereken paketleri de gosterir.
 #Guvenlik aciginin hangi surumleri kapsadigini ve cozum icin oneriler sunar.
 
-safety check #Paketlerin guvenlik kontrolu icin.
-safety check -r requirements.txt #Kurulum yapmadan requirements.txt dosyasindaki guvenlik riski olusturacak kutuphaneleri tarayabilirsin.
-safety check --full-report #Detayli rapor goruntulemek icin.
-safety check --output text > insecure_report.txt #Raporu dosyaya kaydetmek icin.
-safety check --output json > insecure_report.json #json formatinda kaydetmek icin.
-safety review -f insecure_report.json #json foramatinda kaydedilen dosyayi tekrar gormek icin.
-safety review -r insecure_report.json --full-report #full report olarak kaydedilmis ise ek parametre olarak belirtilmelidir.
-safety check -i 1234 #ID girilen bu ornekte 1234 degeri bir veya daha fazla olsa bile dahil etmemk icin.
-
+>>> safety check #Paketlerin guvenlik kontrolu icin.
+>>> safety check -r requirements.txt #Kurulum yapmadan requirements.txt dosyasindaki guvenlik riski olusturacak kutuphaneleri tarayabilirsin.
+>>> safety check --full-report #Detayli rapor goruntulemek icin.
+>>> safety check --output text > insecure_report.txt #Raporu dosyaya kaydetmek icin.
+>>> safety check --output json > insecure_report.json #json formatinda kaydetmek icin.
+>>> safety review -f insecure_report.json #json foramatinda kaydedilen dosyayi tekrar gormek icin.
+>>> safety review -r insecure_report.json --full-report #full report olarak kaydedilmis ise ek parametre olarak belirtilmelidir.
+>>> safety check -i 1234 #ID girilen bu ornekte 1234 degeri bir veya daha fazla olsa bile dahil etmemk icin.
 
